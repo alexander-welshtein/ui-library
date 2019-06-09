@@ -17,12 +17,10 @@ export default class Application extends Component {
                 {
                     type: ComponentType.button,
                     label: "Coursera",
-                    textAlign: "center"
                 },
                 {
                     type: ComponentType.button,
                     label: "Udemy",
-                    textAlign: "center",
                     margin: {
                         top: "5px"
                     }
@@ -30,7 +28,6 @@ export default class Application extends Component {
                 {
                     type: ComponentType.button,
                     label: "Lynda",
-                    textAlign: "center",
                     margin: {
                         top: "5px"
                     }

@@ -7,7 +7,8 @@ export default interface ComponentConfig {
     height?: string
     padding?: Padding
     margin?: Margin
-    textAlign?: string
+    textAlign?: string,
+    hidden?: boolean,
     children?: ComponentConfig[]
 }
 

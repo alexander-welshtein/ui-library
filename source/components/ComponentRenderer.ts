@@ -62,7 +62,8 @@ export default class ComponentRenderer {
         return {
             class: "button",
             style: {
-                margin: this.applyMargin(config)
+                margin: this.applyMargin(config),
+                display: this.applyHidden(config)
             },
             children: [
                 {
@@ -81,7 +82,8 @@ export default class ComponentRenderer {
         return {
             class: "field",
             style: {
-                margin: this.applyMargin(config)
+                margin: this.applyMargin(config),
+                display: this.applyHidden(config)
             },
             children: [
                 {
@@ -131,7 +133,11 @@ export default class ComponentRenderer {
     }
 
     private static applyTextAlign(config: ComponentConfig): string {
-        return config.textAlign ? config.textAlign : "auto"
+        return config.textAlign ? config.textAlign : "center"
+    }
+
+    private static applyHidden(config: ComponentConfig): string {
+        return config.hidden ? "none" : "block"
     }
 }
 
