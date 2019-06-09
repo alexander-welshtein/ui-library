@@ -1,6 +1,14 @@
 .main-theme {
+    .columnLayout {
+        display: flex;
+    }
+
+    .row-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
     .button {
-        display: inline-block;
         padding: 8px;
         background-color: #9E9E9E;
         color: #FAFAFA;
