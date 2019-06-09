@@ -1,14 +1,17 @@
 import "./Application.scss"
-import View from "./render/View"
-import Config from "./render/Config"
-import Button from "./components/button/Button"
+import "./themes/MainTheme.scss"
+import ComponentConfig from "./components/ComponentConfig"
+import Component from "./components/Component"
 
-export default class Application extends View {
-    public render(): Config {
+export default class Application extends Component {
+    public render(): ComponentConfig {
         return {
-            class: "application",
+            type: "linearLayout",
             children: [
-                new Button().render()
+                {
+                    type: "button",
+                    label: "Coursera"
+                }
             ]
         }
     }
