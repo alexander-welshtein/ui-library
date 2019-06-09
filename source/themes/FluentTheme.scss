@@ -1,0 +1,60 @@
+.fluent-theme {
+    font-family: "Montserrat", sans-serif;
+
+    .columnLayout {
+        display: flex;
+    }
+
+    .row-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        padding: 8px;
+        background-color: transparent;
+        color: #9E9E9E;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #9E9E9E;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color .2s;
+
+        &:hover {
+            background-color: #EEEEEE;
+        }
+
+        &:active {
+            background-color: #E0E0E0;
+        }
+    }
+
+    .field {
+        width: 100%;
+
+        p {
+            color: #9E9E9E;
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            color: #9E9E9E;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 3px;
+            border-color: #9E9E9E;
+            font-size: 14px;
+            outline: none;
+            transition: border-color .2s;
+
+            &:focus {
+                border-color: #616161;
+            }
+        }
+    }
+}

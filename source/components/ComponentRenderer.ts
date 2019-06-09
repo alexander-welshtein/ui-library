@@ -16,6 +16,9 @@ export default class ComponentRenderer {
             case ComponentType.button:
                 config = this.renderButton(componentConfig)
                 break
+            case ComponentType.field:
+                config = this.renderField(componentConfig)
+                break
         }
 
         if (componentConfig.children) {
@@ -68,6 +71,27 @@ export default class ComponentRenderer {
                     text: config.label,
                     style: {
                         textAlign: this.applyTextAlign(config)
+                    }
+                }
+            ]
+        }
+    }
+
+    private static renderField(config: ComponentConfig): Config {
+        return {
+            class: "field",
+            style: {
+                margin: this.applyMargin(config)
+            },
+            children: [
+                {
+                    tag: "p",
+                    text: "Label"
+                },
+                {
+                    tag: "input",
+                    attrs: {
+                        type: "text"
                     }
                 }
             ]
