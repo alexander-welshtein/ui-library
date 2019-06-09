@@ -3,7 +3,7 @@ const path = require('path');
 
 // noinspection JSUnresolvedVariable
 module.exports = {
-    entry: './sources/main.ts',
+    entry: './source/main.ts',
     mode: "development",
     devtool: "inline-source-map",
 
