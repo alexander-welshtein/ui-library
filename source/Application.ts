@@ -1,3 +1,4 @@
+import "./Application.scss"
 import View from "./render/View"
 import Config from "./render/Config"
 import Button from "./components/button/Button"
