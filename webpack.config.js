@@ -43,7 +43,7 @@ module.exports = {
     },
 
     output: {
-        filename: 'generated/main.js',
+        filename: 'generated/bundle.js',
         path: path.resolve(__dirname, './')
     }
 };
