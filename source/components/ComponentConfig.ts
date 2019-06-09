@@ -9,6 +9,7 @@ export default interface ComponentConfig {
     margin?: Margin
     textAlign?: string,
     hidden?: boolean,
+    gravity?: number,
     children?: ComponentConfig[]
 }
 

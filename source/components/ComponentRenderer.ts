@@ -63,7 +63,8 @@ export default class ComponentRenderer {
             class: "button",
             style: {
                 margin: this.applyMargin(config),
-                display: this.applyHidden(config)
+                display: this.applyHidden(config),
+                flex: this.applyGravity(config)
             },
             children: [
                 {
@@ -138,6 +139,10 @@ export default class ComponentRenderer {
 
     private static applyHidden(config: ComponentConfig): string {
         return config.hidden ? "none" : "block"
+    }
+
+    private static applyGravity(config: ComponentConfig): string {
+        return config.gravity ? config.gravity + "" : "auto"
     }
 }
 

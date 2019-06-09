@@ -16,7 +16,7 @@ export default class Application extends Component {
             children: [
                 {
                     type: ComponentType.button,
-                    label: "Coursera",
+                    label: "Coursera"
                 },
                 {
                     type: ComponentType.button,
