@@ -1,18 +1,19 @@
 import ComponentConfig from "./ComponentConfig"
 import Config from "../render/Config"
+import {ComponentType} from "./ComponentType"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
         let config: Config
 
         switch (componentConfig.type) {
-            case "rowLayout":
+            case ComponentType.rowLayout:
                 config = this.renderRowLayout(componentConfig)
                 break
-            case "columnLayout":
+            case ComponentType.columnLayout:
                 config = this.renderColumnLayout(componentConfig)
                 break
-            case "button":
+            case ComponentType.button:
                 config = this.renderButton(componentConfig)
                 break
         }
@@ -30,7 +31,6 @@ export default class ComponentRenderer {
         return config
     }
 
-    // noinspection JSUnusedLocalSymbols
     private static renderRowLayout(config: ComponentConfig): Config {
         return {
             class: "row-layout",
@@ -42,7 +42,6 @@ export default class ComponentRenderer {
         }
     }
 
-    // noinspection JSUnusedLocalSymbols
     private static renderColumnLayout(config: ComponentConfig): Config {
         return {
             class: "columnLayout",
@@ -93,6 +92,5 @@ export default class ComponentRenderer {
     private static applyTextAlign(config: ComponentConfig): string {
         return config.textAlign ? config.textAlign : "auto"
     }
-
 }
 

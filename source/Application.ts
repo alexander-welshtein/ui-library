@@ -2,23 +2,25 @@ import "./Application.scss"
 import "./themes/MainTheme.scss"
 import ComponentConfig from "./components/ComponentConfig"
 import Component from "./components/Component"
+import {ComponentType} from "./components/ComponentType"
 
 export default class Application extends Component {
     public render(): ComponentConfig {
         return {
-            type: "rowLayout",
+            type: ComponentType.rowLayout,
             width: "150px",
             padding: {
-                left: "10px",
+                top: "10px",
+                left: "10px"
             },
             children: [
                 {
-                    type: "button",
+                    type: ComponentType.button,
                     label: "Coursera",
                     textAlign: "center"
                 },
                 {
-                    type: "button",
+                    type: ComponentType.button,
                     label: "Udemy",
                     textAlign: "center"
                 }

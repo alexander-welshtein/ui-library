@@ -1,5 +1,7 @@
+import {ComponentType} from "./ComponentType"
+
 export default interface ComponentConfig {
-    type?: string,
+    type?: ComponentType,
     label?: string,
     width?: string,
     height?: string,
