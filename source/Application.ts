@@ -22,7 +22,10 @@ export default class Application extends Component {
                 {
                     type: ComponentType.button,
                     label: "Udemy",
-                    textAlign: "center"
+                    textAlign: "center",
+                    margin: {
+                        top: "5px"
+                    }
                 }
             ]
         }

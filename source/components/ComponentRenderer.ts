@@ -37,7 +37,8 @@ export default class ComponentRenderer {
             style: {
                 width: this.applyWidth(config),
                 height: this.applyHeight(config),
-                padding: this.applyPadding(config)
+                padding: this.applyPadding(config),
+                margin: this.applyMargin(config)
             }
         }
     }
@@ -48,7 +49,8 @@ export default class ComponentRenderer {
             style: {
                 width: this.applyWidth(config),
                 height: this.applyHeight(config),
-                padding: this.applyPadding(config)
+                padding: this.applyPadding(config),
+                margin: this.applyMargin(config)
             }
         }
     }
@@ -56,6 +58,9 @@ export default class ComponentRenderer {
     private static renderButton(config: ComponentConfig): Config {
         return {
             class: "button",
+            style: {
+                margin: this.applyMargin(config)
+            },
             children: [
                 {
                     tag: "p",
@@ -83,6 +88,18 @@ export default class ComponentRenderer {
             const bottom = config.padding.bottom ? config.padding.bottom : "0"
             const left = config.padding.left ? config.padding.left : "0"
             const right = config.padding.right ? config.padding.right : "0"
+
+            return top + " " + right + " " + bottom + " " + left
+        }
+        return "0 0 0 0"
+    }
+
+    private static applyMargin(config: ComponentConfig): string {
+        if (config.margin) {
+            const top = config.margin.top ? config.margin.top : "0"
+            const bottom = config.margin.bottom ? config.margin.bottom : "0"
+            const left = config.margin.left ? config.margin.left : "0"
+            const right = config.margin.right ? config.margin.right : "0"
 
             return top + " " + right + " " + bottom + " " + left
         }
