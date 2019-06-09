@@ -8,7 +8,7 @@ export default class Application extends Component {
     public render(): ComponentConfig {
         return {
             type: ComponentType.rowLayout,
-            width: "150px",
+                width: "125px",
             padding: {
                 top: "10px",
                 left: "10px"
@@ -22,6 +22,14 @@ export default class Application extends Component {
                 {
                     type: ComponentType.button,
                     label: "Udemy",
+                    textAlign: "center",
+                    margin: {
+                        top: "5px"
+                    }
+                },
+                {
+                    type: ComponentType.button,
+                    label: "Lynda",
                     textAlign: "center",
                     margin: {
                         top: "5px"
