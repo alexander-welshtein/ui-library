@@ -1,8 +1,8 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
-import ComponentConfig from "./components/ComponentConfig"
-import Component from "./components/Component"
-import {ComponentType} from "./components/ComponentType"
+import ComponentConfig from "./core/ComponentConfig"
+import Component from "./core/Component"
+import {ComponentType} from "./core/ComponentType"
 
 export default class Application extends Component {
     public render(): ComponentConfig {
@@ -23,6 +23,9 @@ export default class Application extends Component {
                     label: "Udemy",
                     margin: {
                         top: "5px"
+                    },
+                    onRender: component => {
+                        console.log(component)
                     }
                 },
                 {

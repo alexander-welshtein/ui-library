@@ -1,6 +1,7 @@
 import ComponentConfig from "./ComponentConfig"
 import Config from "../render/Config"
 import {ComponentType} from "./ComponentType"
+import Button from "../components/Button"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -29,6 +30,20 @@ export default class ComponentRenderer {
 
                 config.children.push(this.render(child))
             }
+        }
+
+        if (componentConfig.onRender) {
+            let onRender: ((element: HTMLElement) => void)
+
+            switch (componentConfig.type) {
+                case ComponentType.button:
+                    onRender = element => {
+                        componentConfig.onRender(new Button(element, componentConfig))
+                    }
+                    break
+            }
+
+            config.onRender = onRender
         }
 
         return config

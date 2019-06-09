@@ -1,4 +1,5 @@
 import {ComponentType} from "./ComponentType"
+import Component from "./Component"
 
 export default interface ComponentConfig {
     type?: ComponentType
@@ -7,10 +8,11 @@ export default interface ComponentConfig {
     height?: string
     padding?: Padding
     margin?: Margin
-    textAlign?: string,
-    hidden?: boolean,
-    gravity?: number,
+    textAlign?: string
+    hidden?: boolean
+    gravity?: number
     children?: ComponentConfig[]
+    onRender?: ((component: Component) => void)
 }
 
 interface Padding {
