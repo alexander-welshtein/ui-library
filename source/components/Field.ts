@@ -10,9 +10,12 @@ export class Field extends Component {
 export const renderField = (config: ComponentConfig): Config => ({
     class: "field",
     style: {
-        margin: PropertyComposer.applyMargin(config),
-        display: PropertyComposer.applyHidden(config, "block")
+        margin: PropertyComposer.margin(config),
+        display: PropertyComposer.hidden(config, "block")
     },
+    onRender: config.onRender ? element => {
+        config.onRender(new Field(element, config))
+    } : undefined,
     children: [
         {
             tag: "p",

@@ -1,15 +1,15 @@
 import ComponentConfig, {Align} from "./ComponentConfig"
 
 export default class PropertyComposer {
-    public static applyWidth(config: ComponentConfig): string {
+    public static width(config: ComponentConfig): string {
         return config.width ? config.width : "auto"
     }
 
-    public static applyHeight(config: ComponentConfig): string {
+    public static height(config: ComponentConfig): string {
         return config.height ? config.height : "auto"
     }
 
-    public static applyPadding(config: ComponentConfig): string {
+    public static padding(config: ComponentConfig): string {
         if (config.padding) {
             const top = config.padding.top ? config.padding.top : "0"
             const bottom = config.padding.bottom ? config.padding.bottom : "0"
@@ -21,7 +21,7 @@ export default class PropertyComposer {
         return "0 0 0 0"
     }
 
-    public static applyMargin(config: ComponentConfig): string {
+    public static margin(config: ComponentConfig): string {
         if (config.margin) {
             const top = config.margin.top ? config.margin.top : "0"
             const bottom = config.margin.bottom ? config.margin.bottom : "0"
@@ -33,19 +33,19 @@ export default class PropertyComposer {
         return "0 0 0 0"
     }
 
-    public static applyVerticalAlign(config: ComponentConfig, defaultValue: Align): string {
+    public static verticalAlign(config: ComponentConfig, defaultValue: Align): string {
         return config.verticalAlign ? config.verticalAlign : defaultValue
     }
 
-    public static applyHorizontalAlign(config: ComponentConfig, defaultValue: Align): string {
+    public static horizontalAlign(config: ComponentConfig, defaultValue: Align): string {
         return config.horizontalAlign ? config.horizontalAlign : defaultValue
     }
 
-    public static applyHidden(config: ComponentConfig, defaultValue: string): string {
+    public static hidden(config: ComponentConfig, defaultValue: string): string {
         return config.hidden ? "none" : defaultValue
     }
 
-    public static applyGravity(config: ComponentConfig): string {
+    public static gravity(config: ComponentConfig): string {
         return config.gravity ? config.gravity + "" : "auto"
     }
 }

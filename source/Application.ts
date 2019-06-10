@@ -7,45 +7,53 @@ export default class Application {
     public render(): ComponentConfig {
         return {
             type: ComponentType.rowLayout,
-            width: "125px",
+            width: "100%",
             height: "100%",
-            padding: {
-                top: "10px",
-                left: "10px",
-                bottom: "10px",
-                right: "10px"
-            },
             children: [
                 {
-                    type: ComponentType.button,
-                    label: "Coursera"
+                    type: ComponentType.rowLayout,
+                    children: [
+                        {
+                            type: ComponentType.button,
+                            label: "Spacer"
+                        }
+                    ]
                 },
                 {
-                    type: ComponentType.spacer,
-                    gravity: 1
-                },
-                {
-                    type: ComponentType.button,
-                    label: "Udemy",
-                    margin: {
-                        top: "5px"
-                    },
-                    onRender: component => {
-                        console.log(component)
-                    }
-                },
-                {
-                    type: ComponentType.button,
-                    label: "Lynda",
-                    margin: {
-                        top: "5px"
-                    }
-                },
-                {
-                    type: ComponentType.field,
-                    margin: {
-                        top: "5px"
-                    }
+                    type: ComponentType.rowLayout,
+                    children: [
+                        {
+                            type: ComponentType.button,
+                            label: "Coursera"
+                        },
+                        {
+                            type: ComponentType.spacer,
+                            gravity: 1
+                        },
+                        {
+                            type: ComponentType.button,
+                            label: "Udemy",
+                            margin: {
+                                top: "5px"
+                            },
+                            onRender: component => {
+                                console.log(component)
+                            }
+                        },
+                        {
+                            type: ComponentType.button,
+                            label: "Lynda",
+                            margin: {
+                                top: "5px"
+                            }
+                        },
+                        {
+                            type: ComponentType.field,
+                            margin: {
+                                top: "5px"
+                            }
+                        }
+                    ]
                 }
             ]
         }

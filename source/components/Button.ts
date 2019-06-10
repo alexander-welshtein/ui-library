@@ -9,11 +9,11 @@ export class Button extends Component {
 export const renderButton = (config: ComponentConfig): Config => ({
     class: "button",
     style: {
-        margin: PropertyComposer.applyMargin(config),
-        display: PropertyComposer.applyHidden(config, "flex"),
-        flex: PropertyComposer.applyGravity(config),
-        justifyContent: PropertyComposer.applyHorizontalAlign(config, Align.Center),
-        alignItems: PropertyComposer.applyVerticalAlign(config, Align.Center)
+        margin: PropertyComposer.margin(config),
+        display: PropertyComposer.hidden(config, "flex"),
+        flex: PropertyComposer.gravity(config),
+        justifyContent: PropertyComposer.horizontalAlign(config, Align.Center),
+        alignItems: PropertyComposer.verticalAlign(config, Align.Center)
     },
     onRender: config.onRender ? element => {
         config.onRender(new Button(element, config))
