@@ -32,20 +32,6 @@ export default class ComponentRenderer {
             }
         }
 
-        if (componentConfig.onRender) {
-            let onRender: ((element: HTMLElement) => void)
-
-            switch (componentConfig.type) {
-                case ComponentType.button:
-                    onRender = element => {
-                        componentConfig.onRender(new Button(element, componentConfig))
-                    }
-                    break
-            }
-
-            config.onRender = onRender
-        }
-
         return config
     }
 
@@ -81,6 +67,9 @@ export default class ComponentRenderer {
                 display: this.applyHidden(config),
                 flex: this.applyGravity(config)
             },
+            onRender: config.onRender ? element => {
+                config.onRender(new Button(element, config))
+            } : undefined,
             children: [
                 {
                     tag: "p",
