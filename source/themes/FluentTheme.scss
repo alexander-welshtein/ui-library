@@ -1,12 +1,12 @@
 .fluent-theme {
     font-family: "Montserrat", sans-serif;
 
-    .columnLayout {
+    .horizontal-layout {
         display: flex;
         box-sizing: border-box;
     }
 
-    .row-layout {
+    .vertical-layout {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
