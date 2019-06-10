@@ -11,12 +11,18 @@ export default class Application {
             height: "100%",
             padding: {
                 top: "10px",
-                left: "10px"
+                left: "10px",
+                bottom: "10px",
+                right: "10px"
             },
             children: [
                 {
                     type: ComponentType.button,
                     label: "Coursera"
+                },
+                {
+                    type: ComponentType.spacer,
+                    gravity: 1
                 },
                 {
                     type: ComponentType.button,

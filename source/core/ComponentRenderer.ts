@@ -5,25 +5,11 @@ import {renderButton} from "../components/Button"
 import {renderField} from "../components/Field"
 import {renderHorizontalLayout} from "../components/HorizontalLayout"
 import {renderVerticalLayout} from "../components/VerticalLayout"
+import {renderSpacer} from "../components/Spacer"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
-        let config: Config
-
-        switch (componentConfig.type) {
-            case ComponentType.rowLayout:
-                config = renderVerticalLayout(componentConfig)
-                break
-            case ComponentType.columnLayout:
-                config = renderHorizontalLayout(componentConfig)
-                break
-            case ComponentType.button:
-                config = renderButton(componentConfig)
-                break
-            case ComponentType.field:
-                config = renderField(componentConfig)
-                break
-        }
+        const config = this.toConfig(componentConfig)
 
         if (componentConfig.children) {
             for (const child of componentConfig.children) {
@@ -35,6 +21,21 @@ export default class ComponentRenderer {
         }
 
         return config
+    }
+
+    private static toConfig(config: ComponentConfig): Config {
+        switch (config.type) {
+            case ComponentType.rowLayout:
+                return renderVerticalLayout(config)
+            case ComponentType.columnLayout:
+                return renderHorizontalLayout(config)
+            case ComponentType.button:
+                return renderButton(config)
+            case ComponentType.field:
+                return renderField(config)
+            case ComponentType.spacer:
+                return renderSpacer(config)
+        }
     }
 }
 
