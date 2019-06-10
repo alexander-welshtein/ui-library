@@ -3,14 +3,17 @@
 
     .columnLayout {
         display: flex;
+        box-sizing: border-box;
     }
 
     .row-layout {
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
     }
 
     .button {
+        display: flex;
         padding: 8px;
         background-color: transparent;
         color: #9E9E9E;

@@ -1,14 +1,14 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
 import ComponentConfig from "./core/ComponentConfig"
-import Component from "./core/Component"
 import {ComponentType} from "./core/ComponentType"
 
-export default class Application extends Component {
+export default class Application {
     public render(): ComponentConfig {
         return {
             type: ComponentType.rowLayout,
             width: "125px",
+            height: "100%",
             padding: {
                 top: "10px",
                 left: "10px"

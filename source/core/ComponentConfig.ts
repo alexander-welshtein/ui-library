@@ -8,7 +8,8 @@ export default interface ComponentConfig {
     height?: string
     padding?: Padding
     margin?: Margin
-    textAlign?: string
+    verticalAlign?: Align
+    horizontalAlign?: Align
     hidden?: boolean
     gravity?: number
     children?: ComponentConfig[]
@@ -27,4 +28,10 @@ interface Margin {
     bottom?: string
     left?: string
     right?: string
+}
+
+export enum Align {
+    Left = "left",
+    Right = "right",
+    Center = "center"
 }

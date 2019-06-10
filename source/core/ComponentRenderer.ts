@@ -1,4 +1,4 @@
-import ComponentConfig from "./ComponentConfig"
+import ComponentConfig, {Align} from "./ComponentConfig"
 import Config from "../render/Config"
 import {ComponentType} from "./ComponentType"
 import Button from "../components/Button"
@@ -42,7 +42,9 @@ export default class ComponentRenderer {
                 width: this.applyWidth(config),
                 height: this.applyHeight(config),
                 padding: this.applyPadding(config),
-                margin: this.applyMargin(config)
+                margin: this.applyMargin(config),
+                justifyContent: this.applyHorizontalAlign(config, Align.Left),
+                alignItems: this.applyVerticalAlign(config, Align.Left)
             }
         }
     }
@@ -54,7 +56,9 @@ export default class ComponentRenderer {
                 width: this.applyWidth(config),
                 height: this.applyHeight(config),
                 padding: this.applyPadding(config),
-                margin: this.applyMargin(config)
+                margin: this.applyMargin(config),
+                justifyContent: this.applyHorizontalAlign(config, Align.Left),
+                alignItems: this.applyVerticalAlign(config, Align.Left)
             }
         }
     }
@@ -64,8 +68,10 @@ export default class ComponentRenderer {
             class: "button",
             style: {
                 margin: this.applyMargin(config),
-                display: this.applyHidden(config),
-                flex: this.applyGravity(config)
+                display: this.applyHidden(config, "flex"),
+                flex: this.applyGravity(config),
+                justifyContent: this.applyHorizontalAlign(config, Align.Center),
+                alignItems: this.applyVerticalAlign(config, Align.Center)
             },
             onRender: config.onRender ? element => {
                 config.onRender(new Button(element, config))
@@ -74,10 +80,7 @@ export default class ComponentRenderer {
                 {
                     tag: "p",
                     class: "label",
-                    text: config.label,
-                    style: {
-                        textAlign: this.applyTextAlign(config)
-                    }
+                    text: config.label
                 }
             ]
         }
@@ -88,7 +91,7 @@ export default class ComponentRenderer {
             class: "field",
             style: {
                 margin: this.applyMargin(config),
-                display: this.applyHidden(config)
+                display: this.applyHidden(config, "block")
             },
             children: [
                 {
@@ -137,12 +140,16 @@ export default class ComponentRenderer {
         return "0 0 0 0"
     }
 
-    private static applyTextAlign(config: ComponentConfig): string {
-        return config.textAlign ? config.textAlign : "center"
+    private static applyVerticalAlign(config: ComponentConfig, defaultValue: Align): string {
+        return config.verticalAlign ? config.verticalAlign : defaultValue
     }
 
-    private static applyHidden(config: ComponentConfig): string {
-        return config.hidden ? "none" : "block"
+    private static applyHorizontalAlign(config: ComponentConfig, defaultValue: Align): string {
+        return config.horizontalAlign ? config.horizontalAlign : defaultValue
+    }
+
+    private static applyHidden(config: ComponentConfig, defaultValue: string): string {
+        return config.hidden ? "none" : defaultValue
     }
 
     private static applyGravity(config: ComponentConfig): string {
