@@ -14,13 +14,15 @@ export default (): ComponentConfig => ({
             children: [
                 {
                     type: ComponentType.Button,
-                    label: "Button",
-                    fit: true
+                    value: "Button",
                 },
                 {
                     type: ComponentType.Button,
-                    label: "SuperButton",
-                    fit: true
+                    value: "SuperButton",
+                },
+                {
+                    type: ComponentType.Label,
+                    value: "Label"
                 }
             ]
         },

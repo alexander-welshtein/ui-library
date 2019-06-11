@@ -6,6 +6,7 @@ import {renderField} from "../components/Field"
 import {renderHorizontalLayout} from "../components/HorizontalLayout"
 import {renderVerticalLayout} from "../components/VerticalLayout"
 import {renderSpacer} from "../components/Spacer"
+import {renderLabel} from "../components/Label"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -35,6 +36,8 @@ export default class ComponentRenderer {
                 return renderField(config)
             case ComponentType.Spacer:
                 return renderSpacer(config)
+            case ComponentType.Label:
+                return renderLabel(config)
         }
     }
 }

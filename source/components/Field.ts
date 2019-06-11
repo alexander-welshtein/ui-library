@@ -10,13 +10,7 @@ export class Field extends Component {
 export const renderField = (config: ComponentConfig): Config => {
     const style = {}
 
-    PropertyComposer.main(style)
-
-    PropertyComposer.width(style, config)
-    PropertyComposer.height(style, config)
-    PropertyComposer.fit(style, config)
-    PropertyComposer.margin(style, config)
-    PropertyComposer.hidden(style, config, "block")
+    PropertyComposer.basic(style, config)
 
     return {
         class: "field",

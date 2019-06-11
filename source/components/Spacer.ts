@@ -10,11 +10,7 @@ export class Spacer extends Component {
 export const renderSpacer = (config: ComponentConfig): Config => {
     const style = {}
 
-    PropertyComposer.main(style)
-
-    PropertyComposer.width(style, config)
-    PropertyComposer.height(style, config)
-    PropertyComposer.gravity(style, config)
+    PropertyComposer.basic(style, config)
 
     return {
         class: "spacer",

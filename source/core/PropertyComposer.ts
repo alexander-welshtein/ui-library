@@ -1,8 +1,16 @@
 import ComponentConfig, {Align} from "./ComponentConfig"
 
 export default class PropertyComposer {
-    public static main(style: any) {
+    public static basic(style: any, config: ComponentConfig) {
+        this.width(style, config)
+        this.height(style, config)
+        this.gravity(style, config)
+        this.fit(style, config)
+        this.padding(style, config)
+        this.margin(style, config)
+        this.hidden(style, config)
     }
+
 
     public static width(style: any, config: ComponentConfig) {
         style["width"] = config.width ? config.width : "auto"
@@ -54,8 +62,8 @@ export default class PropertyComposer {
         style["justifyContent"] = config.horizontalAlign ? config.horizontalAlign : defaultValue
     }
 
-    public static hidden(style: any, config: ComponentConfig, defaultValue: string) {
-        style["display"] = config.hidden ? "none" : defaultValue
+    public static hidden(style: any, config: ComponentConfig) {
+        style["display"] = config.hidden ? "none" : "flex"
     }
 
     public static gravity(style: any, config: ComponentConfig) {

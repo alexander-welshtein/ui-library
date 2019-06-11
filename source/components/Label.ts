@@ -2,19 +2,21 @@ import Component from "./Component"
 import ComponentConfig, {Align} from "../core/ComponentConfig"
 import Config from "../render/Config"
 import PropertyComposer from "../core/PropertyComposer"
+import {Button} from "./Button"
 
-export class Button extends Component {
+export class Label extends Component {
+
 }
 
-export const renderButton = (config: ComponentConfig): Config => {
+export const renderLabel = (config: ComponentConfig): Config => {
     const style = {}
 
     PropertyComposer.basic(style, config)
-    PropertyComposer.horizontalAlign(style, config, Align.Center)
-    PropertyComposer.verticalAlign(style, config, Align.Center)
+    PropertyComposer.horizontalAlign(style, config, Align.Left)
+    PropertyComposer.verticalAlign(style, config, Align.Left)
 
     return {
-        class: "button",
+        class: "label",
         style,
         onRender: config.onRender ? element => {
             config.onRender(new Button(element, config))
@@ -22,7 +24,7 @@ export const renderButton = (config: ComponentConfig): Config => {
         children: [
             {
                 tag: "p",
-                class: "label",
+                class: "value",
                 text: config.value
             }
         ]

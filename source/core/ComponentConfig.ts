@@ -3,7 +3,7 @@ import Component from "../components/Component"
 
 export default interface ComponentConfig {
     type?: ComponentType
-    label?: string
+    value?: string
     width?: string
     height?: string
     fit?: boolean

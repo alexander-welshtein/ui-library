@@ -10,14 +10,7 @@ export class VerticalLayout extends Component {
 export const renderVerticalLayout = (config: ComponentConfig): Config => {
     const style = {}
 
-    PropertyComposer.main(style)
-
-    PropertyComposer.width(style, config)
-    PropertyComposer.height(style, config)
-    PropertyComposer.fit(style, config)
-    PropertyComposer.gravity(style, config)
-    PropertyComposer.padding(style, config)
-    PropertyComposer.margin(style, config)
+    PropertyComposer.basic(style, config)
     PropertyComposer.horizontalAlign(style, config, Align.Left)
     PropertyComposer.verticalAlign(style, config, Align.Right)
 

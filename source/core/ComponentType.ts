@@ -3,5 +3,6 @@ export enum ComponentType {
     ColumnLayout = 1,
     Button = 2,
     Field = 3,
-    Spacer = 4
+    Spacer = 4,
+    Label = 5
 }
