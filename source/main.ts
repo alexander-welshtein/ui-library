@@ -3,4 +3,4 @@ import Application from "./Application"
 import ComponentRenderer from "./core/ComponentRenderer"
 
 document.body.classList.add("fluent-theme")
-document.body.appendChild(Renderer.render(ComponentRenderer.render(new Application().render())))
+document.body.appendChild(Renderer.render(ComponentRenderer.render(Application())))
