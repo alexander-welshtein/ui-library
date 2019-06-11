@@ -7,11 +7,17 @@ export class Spacer extends Component {
 
 }
 
-export const renderSpacer = (config: ComponentConfig): Config => ({
-    class: "spacer",
-    style: {
-        width: PropertyComposer.width(config),
-        height: PropertyComposer.height(config),
-        flex: PropertyComposer.gravity(config)
+export const renderSpacer = (config: ComponentConfig): Config => {
+    const style = {}
+
+    style["flex"] = 1
+
+    PropertyComposer.width(style, config)
+    PropertyComposer.height(style, config)
+    PropertyComposer.gravity(style, config)
+
+    return {
+        class: "spacer",
+        style
     }
-})
+}

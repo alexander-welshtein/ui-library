@@ -12,30 +12,28 @@ export default class Application {
             children: [
                 {
                     type: ComponentType.rowLayout,
+                    gravity: .5,
                     children: [
                         {
                             type: ComponentType.button,
-                            label: "Spacer"
+                            label: "Button"
                         }
                     ]
                 },
                 {
                     type: ComponentType.rowLayout,
+                    gravity: .5,
                     children: [
                         {
                             type: ComponentType.button,
                             label: "Coursera"
                         },
                         {
-                            type: ComponentType.spacer,
-                            gravity: 1
+                            type: ComponentType.spacer
                         },
                         {
                             type: ComponentType.button,
                             label: "Udemy",
-                            margin: {
-                                top: "5px"
-                            },
                             onRender: component => {
                                 console.log(component)
                             }
@@ -43,15 +41,6 @@ export default class Application {
                         {
                             type: ComponentType.button,
                             label: "Lynda",
-                            margin: {
-                                top: "5px"
-                            }
-                        },
-                        {
-                            type: ComponentType.field,
-                            margin: {
-                                top: "5px"
-                            }
                         }
                     ]
                 }

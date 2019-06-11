@@ -6,23 +6,29 @@ import PropertyComposer from "../core/PropertyComposer"
 export class Button extends Component {
 }
 
-export const renderButton = (config: ComponentConfig): Config => ({
-    class: "button",
-    style: {
-        margin: PropertyComposer.margin(config),
-        display: PropertyComposer.hidden(config, "flex"),
-        flex: PropertyComposer.gravity(config),
-        justifyContent: PropertyComposer.horizontalAlign(config, Align.Center),
-        alignItems: PropertyComposer.verticalAlign(config, Align.Center)
-    },
-    onRender: config.onRender ? element => {
-        config.onRender(new Button(element, config))
-    } : undefined,
-    children: [
-        {
-            tag: "p",
-            class: "label",
-            text: config.label
-        }
-    ]
-})
+export const renderButton = (config: ComponentConfig): Config => {
+    const style = {}
+
+    style["flex"] = 1
+
+    PropertyComposer.margin(style, config)
+    PropertyComposer.hidden(style, config, "flex")
+    PropertyComposer.gravity(style, config)
+    PropertyComposer.horizontalAlign(style, config, Align.Center)
+    PropertyComposer.verticalAlign(style, config, Align.Center)
+
+    return {
+        class: "button",
+        style,
+        onRender: config.onRender ? element => {
+            config.onRender(new Button(element, config))
+        } : undefined,
+        children: [
+            {
+                tag: "p",
+                class: "label",
+                text: config.label
+            }
+        ]
+    }
+}

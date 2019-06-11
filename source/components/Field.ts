@@ -7,25 +7,31 @@ export class Field extends Component {
 
 }
 
-export const renderField = (config: ComponentConfig): Config => ({
-    class: "field",
-    style: {
-        margin: PropertyComposer.margin(config),
-        display: PropertyComposer.hidden(config, "block")
-    },
-    onRender: config.onRender ? element => {
-        config.onRender(new Field(element, config))
-    } : undefined,
-    children: [
-        {
-            tag: "p",
-            text: "Label"
-        },
-        {
-            tag: "input",
-            attrs: {
-                type: "text"
+export const renderField = (config: ComponentConfig): Config => {
+    const style = {}
+
+    style["flex"] = 1
+
+    PropertyComposer.margin(style, config)
+    PropertyComposer.hidden(style, config, "block")
+
+    return {
+        class: "field",
+        style,
+        onRender: config.onRender ? element => {
+            config.onRender(new Field(element, config))
+        } : undefined,
+        children: [
+            {
+                tag: "p",
+                text: "Label"
+            },
+            {
+                tag: "input",
+                attrs: {
+                    type: "text"
+                }
             }
-        }
-    ]
-})
+        ]
+    }
+}

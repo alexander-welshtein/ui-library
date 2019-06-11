@@ -7,15 +7,20 @@ export class HorizontalLayout extends Component {
 
 }
 
-export const renderHorizontalLayout = (config: ComponentConfig): Config => ({
-    class: "horizontal-layout",
-    style: {
-        width: PropertyComposer.width(config),
-        height: PropertyComposer.height(config),
-        flex: PropertyComposer.gravity(config),
-        padding: PropertyComposer.padding(config),
-        margin: PropertyComposer.margin(config),
-        justifyContent: PropertyComposer.horizontalAlign(config, Align.Left),
-        alignItems: PropertyComposer.verticalAlign(config, Align.Left)
+export const renderHorizontalLayout = (config: ComponentConfig): Config => {
+    const style = {}
+
+    style["flex"] = 1
+
+    PropertyComposer.width(style, config)
+    PropertyComposer.height(style, config)
+    PropertyComposer.gravity(style, config)
+    PropertyComposer.margin(style, config)
+    PropertyComposer.horizontalAlign(style, config, Align.Left)
+    PropertyComposer.verticalAlign(style, config, Align.Left)
+
+    return {
+        class: "horizontal-layout",
+        style
     }
-})
+}
