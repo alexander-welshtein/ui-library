@@ -1,6 +1,11 @@
 import ComponentConfig, {Align} from "./ComponentConfig"
 
 export default class PropertyComposer {
+    public static main(style: {}) {
+        style["flexShrink"] = 1
+        style["flexGrow"] = 1
+    }
+
     public static width(style: {}, config: ComponentConfig) {
         style["width"] = config.width ? config.width : "auto"
     }

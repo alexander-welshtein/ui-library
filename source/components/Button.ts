@@ -9,7 +9,7 @@ export class Button extends Component {
 export const renderButton = (config: ComponentConfig): Config => {
     const style = {}
 
-    style["flex"] = 1
+    PropertyComposer.main(style)
 
     PropertyComposer.margin(style, config)
     PropertyComposer.hidden(style, config, "flex")

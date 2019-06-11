@@ -10,7 +10,7 @@ export class VerticalLayout extends Component {
 export const renderVerticalLayout = (config: ComponentConfig): Config => {
     const style = {}
 
-    style["flex"] = 1
+    PropertyComposer.main(style)
 
     PropertyComposer.width(style, config)
     PropertyComposer.height(style, config)

@@ -12,7 +12,6 @@ export default class Application {
             children: [
                 {
                     type: ComponentType.rowLayout,
-                    gravity: .5,
                     children: [
                         {
                             type: ComponentType.button,
@@ -22,7 +21,6 @@ export default class Application {
                 },
                 {
                     type: ComponentType.rowLayout,
-                    gravity: .5,
                     children: [
                         {
                             type: ComponentType.button,
