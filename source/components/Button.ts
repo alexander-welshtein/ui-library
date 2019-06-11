@@ -11,6 +11,9 @@ export const renderButton = (config: ComponentConfig): Config => {
 
     PropertyComposer.main(style)
 
+    PropertyComposer.width(style, config)
+    PropertyComposer.height(style, config)
+    PropertyComposer.fit(style, config)
     PropertyComposer.margin(style, config)
     PropertyComposer.hidden(style, config, "flex")
     PropertyComposer.gravity(style, config)

@@ -6,6 +6,7 @@ export default interface ComponentConfig {
     label?: string
     width?: string
     height?: string
+    fit?: boolean
     padding?: Padding
     margin?: Margin
     verticalAlign?: Align

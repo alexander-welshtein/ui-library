@@ -14,6 +14,7 @@ export const renderVerticalLayout = (config: ComponentConfig): Config => {
 
     PropertyComposer.width(style, config)
     PropertyComposer.height(style, config)
+    PropertyComposer.fit(style, config)
     PropertyComposer.gravity(style, config)
     PropertyComposer.padding(style, config)
     PropertyComposer.margin(style, config)

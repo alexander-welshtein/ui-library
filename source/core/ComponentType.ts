@@ -1,7 +1,7 @@
 export enum ComponentType {
-    rowLayout = 0,
-    columnLayout = 1,
-    button = 2,
-    field = 3,
-    spacer = 4
+    RowLayout = 0,
+    ColumnLayout = 1,
+    Button = 2,
+    Field = 3,
+    Spacer = 4
 }

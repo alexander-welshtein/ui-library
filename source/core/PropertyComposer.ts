@@ -1,20 +1,28 @@
 import ComponentConfig, {Align} from "./ComponentConfig"
 
 export default class PropertyComposer {
-    public static main(style: {}) {
-        style["flexShrink"] = 1
-        style["flexGrow"] = 1
+    public static main(style: any) {
     }
 
-    public static width(style: {}, config: ComponentConfig) {
+    public static width(style: any, config: ComponentConfig) {
         style["width"] = config.width ? config.width : "auto"
     }
 
-    public static height(style: {}, config: ComponentConfig) {
+    public static height(style: any, config: ComponentConfig) {
         style["height"] = config.height ? config.height : "auto"
     }
 
-    public static padding(style: {}, config: ComponentConfig) {
+    public static fit(style: any, config: ComponentConfig) {
+        if (config.fit) {
+            style.flexShrink = "0"
+            style.flexGrow = "0"
+        } else {
+            style.flexShrink = "1"
+            style.flexGrow = "1"
+        }
+    }
+
+    public static padding(style: any, config: ComponentConfig) {
         if (config.padding) {
             const top = config.padding.top ? config.padding.top : "0"
             const bottom = config.padding.bottom ? config.padding.bottom : "0"
@@ -26,7 +34,7 @@ export default class PropertyComposer {
         style["padding"] = "0 0 0 0"
     }
 
-    public static margin(style: {}, config: ComponentConfig) {
+    public static margin(style: any, config: ComponentConfig) {
         if (config.margin) {
             const top = config.margin.top ? config.margin.top : "0"
             const bottom = config.margin.bottom ? config.margin.bottom : "0"
@@ -38,19 +46,19 @@ export default class PropertyComposer {
         style["margin"] = "0 0 0 0"
     }
 
-    public static verticalAlign(style: {}, config: ComponentConfig, defaultValue: Align) {
+    public static verticalAlign(style: any, config: ComponentConfig, defaultValue: Align) {
         style["alignItems"] = config.verticalAlign ? config.verticalAlign : defaultValue
     }
 
-    public static horizontalAlign(style: {}, config: ComponentConfig, defaultValue: Align) {
+    public static horizontalAlign(style: any, config: ComponentConfig, defaultValue: Align) {
         style["justifyContent"] = config.horizontalAlign ? config.horizontalAlign : defaultValue
     }
 
-    public static hidden(style: {}, config: ComponentConfig, defaultValue: string) {
+    public static hidden(style: any, config: ComponentConfig, defaultValue: string) {
         style["display"] = config.hidden ? "none" : defaultValue
     }
 
-    public static gravity(style: {}, config: ComponentConfig) {
+    public static gravity(style: any, config: ComponentConfig) {
         style["flexBasis"] = config.gravity ? (config.gravity * 100) + "%" : "auto"
     }
 }

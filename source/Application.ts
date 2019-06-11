@@ -6,40 +6,30 @@ import {ComponentType} from "./core/ComponentType"
 export default class Application {
     public render(): ComponentConfig {
         return {
-            type: ComponentType.rowLayout,
+            type: ComponentType.RowLayout,
             width: "100%",
             height: "100%",
             children: [
                 {
-                    type: ComponentType.rowLayout,
+                    type: ComponentType.RowLayout,
+                    fit: true,
                     children: [
                         {
-                            type: ComponentType.button,
-                            label: "Button"
+                            type: ComponentType.Button,
+                            label: "Button",
+                            fit: true
+                        },
+                        {
+                            type: ComponentType.Button,
+                            label: "SuperButton",
+                            fit: true
                         }
                     ]
                 },
                 {
-                    type: ComponentType.rowLayout,
+                    type: ComponentType.RowLayout,
                     children: [
-                        {
-                            type: ComponentType.button,
-                            label: "Coursera"
-                        },
-                        {
-                            type: ComponentType.spacer
-                        },
-                        {
-                            type: ComponentType.button,
-                            label: "Udemy",
-                            onRender: component => {
-                                console.log(component)
-                            }
-                        },
-                        {
-                            type: ComponentType.button,
-                            label: "Lynda",
-                        }
+
                     ]
                 }
             ]

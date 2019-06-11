@@ -25,15 +25,15 @@ export default class ComponentRenderer {
 
     private static toConfig(config: ComponentConfig): Config {
         switch (config.type) {
-            case ComponentType.rowLayout:
+            case ComponentType.RowLayout:
                 return renderVerticalLayout(config)
-            case ComponentType.columnLayout:
+            case ComponentType.ColumnLayout:
                 return renderHorizontalLayout(config)
-            case ComponentType.button:
+            case ComponentType.Button:
                 return renderButton(config)
-            case ComponentType.field:
+            case ComponentType.Field:
                 return renderField(config)
-            case ComponentType.spacer:
+            case ComponentType.Spacer:
                 return renderSpacer(config)
         }
     }
