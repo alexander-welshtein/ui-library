@@ -1,4 +1,4 @@
-import Component from "../core/Component"
+import Component from "./Component"
 import ComponentConfig from "../core/ComponentConfig"
 import Config from "../render/Config"
 import PropertyComposer from "../core/PropertyComposer"

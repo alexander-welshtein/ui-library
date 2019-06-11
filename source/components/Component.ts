@@ -1,4 +1,4 @@
-import ComponentConfig from "./ComponentConfig"
+import ComponentConfig from "../core/ComponentConfig"
 
 export default abstract class Component {
     private readonly _element: HTMLElement

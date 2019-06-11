@@ -1,5 +1,5 @@
 import {ComponentType} from "./ComponentType"
-import Component from "./Component"
+import Component from "../components/Component"
 
 export default interface ComponentConfig {
     type?: ComponentType
