@@ -27,9 +27,9 @@ export default class ComponentRenderer {
 
     private static toConfig(config: ComponentConfig): Config {
         switch (config.type) {
-            case ComponentType.RowLayout:
+            case ComponentType.VerticalLayout:
                 return renderVerticalLayout(config)
-            case ComponentType.ColumnLayout:
+            case ComponentType.HorizontalLayout:
                 return renderHorizontalLayout(config)
             case ComponentType.Button:
                 return renderButton(config)

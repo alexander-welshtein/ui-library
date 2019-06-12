@@ -1,6 +1,6 @@
 export enum ComponentType {
-    RowLayout = 0,
-    ColumnLayout = 1,
+    VerticalLayout = 0,
+    HorizontalLayout = 1,
     Button = 2,
     Field = 3,
     Spacer = 4,

@@ -18,6 +18,7 @@ export interface ComponentConfig {
 }
 
 interface Padding {
+    all?: string
     top?: string
     bottom?: string
     left?: string
@@ -25,6 +26,7 @@ interface Padding {
 }
 
 interface Margin {
+    add?: string
     top?: string
     bottom?: string
     left?: string

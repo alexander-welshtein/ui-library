@@ -4,12 +4,12 @@ import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
 
 export default (): ComponentConfig => ({
-    type: ComponentType.RowLayout,
+    type: ComponentType.VerticalLayout,
     width: "100%",
     height: "100%",
     children: [
         {
-            type: ComponentType.RowLayout,
+            type: ComponentType.VerticalLayout,
             fit: true,
             children: [
                 {
@@ -25,27 +25,32 @@ export default (): ComponentConfig => ({
                 },
                 {
                     type: ComponentType.Button,
+                    verticalAlign: Align.Center,
+                    horizontalAlign: Align.Center,
+                    width: "200px",
+                    height: "50px",
                     children: [
                         {
                             type: ComponentType.Label,
                             value: "Super button",
                             verticalAlign: Align.Center,
                             horizontalAlign: Align.Center
+                        },
+                        {
+                            type: ComponentType.Image,
+                            width: "24px",
+                            height: "24px"
                         }
                     ]
                 },
                 {
                     type: ComponentType.Label,
                     value: "Label"
-                },
-                {
-                    type: ComponentType.Image,
-                    height: "200px",
                 }
             ]
         },
         {
-            type: ComponentType.RowLayout,
+            type: ComponentType.VerticalLayout,
             children: []
         }
     ]
