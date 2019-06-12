@@ -3,17 +3,23 @@ import {ComponentConfig} from "../core/ComponentConfig"
 import Config from "../render/Config"
 import StyleComposer from "../core/StyleComposer"
 
-export class Spacer extends Component {
+export class Content extends Component {
 
 }
 
-export const renderSpacer = (config: ComponentConfig): Config => {
+export const renderContent = (config: ComponentConfig): Config => {
     const style = {}
 
     StyleComposer.basic(style, config)
 
-    return {
-        class: "spacer",
+    const result: Config = {
+        class: "content",
         style
     }
+
+    if (config.value) {
+        result.html = config.value
+    }
+
+    return result
 }

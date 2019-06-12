@@ -1,6 +1,6 @@
 import {Align, ComponentConfig} from "./ComponentConfig"
 
-export default class PropertyComposer {
+export default class StyleComposer {
     public static basic(style: any, config: ComponentConfig) {
         this.fit(style, config)
         this.width(style, config)

@@ -1,7 +1,7 @@
 import Component from "./Component"
 import {Align, ComponentConfig} from "../core/ComponentConfig"
 import Config from "../render/Config"
-import PropertyComposer from "../core/PropertyComposer"
+import StyleComposer from "../core/StyleComposer"
 import {Button} from "./Button"
 
 export class Label extends Component {
@@ -11,9 +11,9 @@ export class Label extends Component {
 export const renderLabel = (config: ComponentConfig): Config => {
     const style = {}
 
-    PropertyComposer.basic(style, config)
-    PropertyComposer.horizontalAlign(style, config, Align.Left)
-    PropertyComposer.verticalAlign(style, config, Align.Left)
+    StyleComposer.basic(style, config)
+    StyleComposer.horizontalAlign(style, config, Align.Left)
+    StyleComposer.verticalAlign(style, config, Align.Left)
 
     return {
         class: "label",

@@ -1,7 +1,7 @@
 import Component from "./Component"
 import {ComponentConfig} from "../core/ComponentConfig"
 import Config from "../render/Config"
-import PropertyComposer from "../core/PropertyComposer"
+import StyleComposer from "../core/StyleComposer"
 
 export class Field extends Component {
 
@@ -10,7 +10,7 @@ export class Field extends Component {
 export const renderField = (config: ComponentConfig): Config => {
     const style = {}
 
-    PropertyComposer.basic(style, config)
+    StyleComposer.basic(style, config)
 
     return {
         class: "field",
