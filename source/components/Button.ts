@@ -18,13 +18,6 @@ export const renderButton = (config: ComponentConfig): Config => {
         style,
         onRender: config.onRender ? element => {
             config.onRender(new Button(element, config))
-        } : undefined,
-        children: [
-            {
-                tag: "p",
-                class: "label",
-                text: config.value
-            }
-        ]
+        } : undefined
     }
 }

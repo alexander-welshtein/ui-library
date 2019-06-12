@@ -24,7 +24,6 @@ export const renderLabel = (config: ComponentConfig): Config => {
         children: [
             {
                 tag: "p",
-                class: "value",
                 text: config.value
             }
         ]

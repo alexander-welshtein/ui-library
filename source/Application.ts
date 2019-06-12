@@ -1,6 +1,6 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
-import ComponentConfig from "./core/ComponentConfig"
+import ComponentConfig, {Align} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
 
 export default (): ComponentConfig => ({
@@ -14,11 +14,25 @@ export default (): ComponentConfig => ({
             children: [
                 {
                     type: ComponentType.Button,
-                    value: "Button",
+                    children: [
+                        {
+                            type: ComponentType.Label,
+                            value: "Button",
+                            verticalAlign: Align.Center,
+                            horizontalAlign: Align.Center
+                        }
+                    ]
                 },
                 {
                     type: ComponentType.Button,
-                    value: "SuperButton",
+                    children: [
+                        {
+                            type: ComponentType.Label,
+                            value: "Super button",
+                            verticalAlign: Align.Center,
+                            horizontalAlign: Align.Center
+                        }
+                    ]
                 },
                 {
                     type: ComponentType.Label,
