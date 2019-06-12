@@ -9,49 +9,15 @@ export default (): ComponentConfig => ({
     height: "100%",
     children: [
         {
-            type: ComponentType.VerticalLayout,
-            fit: true,
+            type: ComponentType.HorizontalLayout,
+            height: "48px",
             children: [
                 {
-                    type: ComponentType.Button,
-                    children: [
-                        {
-                            type: ComponentType.Label,
-                            value: "Button",
-                            verticalAlign: Align.Center,
-                            horizontalAlign: Align.Center
-                        }
-                    ]
-                },
-                {
-                    type: ComponentType.Button,
-                    verticalAlign: Align.Center,
-                    horizontalAlign: Align.Center,
-                    width: "200px",
-                    height: "50px",
-                    children: [
-                        {
-                            type: ComponentType.Label,
-                            value: "Super button",
-                            verticalAlign: Align.Center,
-                            horizontalAlign: Align.Center
-                        },
-                        {
-                            type: ComponentType.Image,
-                            width: "24px",
-                            height: "24px"
-                        }
-                    ]
-                },
-                {
                     type: ComponentType.Label,
-                    value: "Label"
+                    value: "Header",
+                    verticalAlign: Align.Center
                 }
             ]
-        },
-        {
-            type: ComponentType.VerticalLayout,
-            children: []
         }
     ]
 })

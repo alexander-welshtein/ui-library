@@ -1,8 +1,10 @@
-import {ComponentType} from "./ComponentType"
 import Component from "../components/Component"
+import {ComponentType} from "./ComponentType"
 
 export interface ComponentConfig {
     type?: ComponentType
+    id?: string
+    class?: string
     value?: string
     width?: string
     height?: string

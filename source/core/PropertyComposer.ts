@@ -2,10 +2,10 @@ import {Align, ComponentConfig} from "./ComponentConfig"
 
 export default class PropertyComposer {
     public static basic(style: any, config: ComponentConfig) {
+        this.fit(style, config)
         this.width(style, config)
         this.height(style, config)
         this.gravity(style, config)
-        this.fit(style, config)
         this.padding(style, config)
         this.margin(style, config)
         this.hidden(style, config)
@@ -13,11 +13,23 @@ export default class PropertyComposer {
 
 
     public static width(style: any, config: ComponentConfig) {
-        style.width = config.width ? config.width : "auto"
+        if (config.width) {
+            style.width = config.width
+            style.flexShrink = "0"
+            style.flexGrow = "0"
+        } else {
+            style.width = "auto"
+        }
     }
 
     public static height(style: any, config: ComponentConfig) {
-        style.height = config.height ? config.height : "auto"
+        if (config.height) {
+            style.height = config.height
+            style.flexShrink = "0"
+            style.flexGrow = "0"
+        } else {
+            style.height = "auto"
+        }
     }
 
     public static fit(style: any, config: ComponentConfig) {

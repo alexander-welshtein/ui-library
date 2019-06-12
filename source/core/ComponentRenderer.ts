@@ -13,6 +13,14 @@ export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
         const config = this.toConfig(componentConfig)
 
+        if (componentConfig.id) {
+            config.id = componentConfig.id
+        }
+
+        if (componentConfig.class) {
+            config.class += componentConfig.class
+        }
+
         if (componentConfig.children) {
             for (const child of componentConfig.children) {
                 if (!config.children) {
