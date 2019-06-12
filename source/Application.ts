@@ -1,6 +1,7 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
 import menuIcon from "../assets/menu.svg"
+import text from "../assets/text.txt"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
 
@@ -29,11 +30,12 @@ export default (): ComponentConfig => ({
                     value: menuIcon,
                     width: "24px",
                     height: "24px"
-                },
-                {
-                    value: menuIcon
                 }
             ]
+        },
+        {
+            type: ComponentType.Label,
+            value: text
         }
     ]
 })
