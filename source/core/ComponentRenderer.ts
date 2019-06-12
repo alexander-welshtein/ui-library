@@ -1,4 +1,4 @@
-import ComponentConfig from "./ComponentConfig"
+import {ComponentConfig} from "./ComponentConfig"
 import Config from "../render/Config"
 import {ComponentType} from "./ComponentType"
 import {renderButton} from "../components/Button"
@@ -7,6 +7,7 @@ import {renderHorizontalLayout} from "../components/HorizontalLayout"
 import {renderVerticalLayout} from "../components/VerticalLayout"
 import {renderSpacer} from "../components/Spacer"
 import {renderLabel} from "../components/Label"
+import {renderImage} from "../components/Image";
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -38,6 +39,8 @@ export default class ComponentRenderer {
                 return renderSpacer(config)
             case ComponentType.Label:
                 return renderLabel(config)
+            case ComponentType.Image:
+                return renderImage(config)
         }
     }
 }

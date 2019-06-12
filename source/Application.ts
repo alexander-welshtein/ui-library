@@ -1,6 +1,6 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
-import ComponentConfig, {Align} from "./core/ComponentConfig"
+import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
 
 export default (): ComponentConfig => ({
@@ -37,6 +37,10 @@ export default (): ComponentConfig => ({
                 {
                     type: ComponentType.Label,
                     value: "Label"
+                },
+                {
+                    type: ComponentType.Image,
+                    height: "200px",
                 }
             ]
         },

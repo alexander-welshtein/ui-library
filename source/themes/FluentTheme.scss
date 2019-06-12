@@ -26,11 +26,6 @@
         cursor: pointer;
         transition: background-color .2s;
 
-        .label {
-            margin: 8px;
-            color: #9E9E9E;
-        }
-
         &:hover {
             background-color: #EEEEEE;
         }
@@ -38,6 +33,10 @@
         &:active {
             background-color: #E0E0E0;
         }
+    }
+
+    .image {
+        background-image: url("../../assets/image_0.jpg");
     }
 
     .field {

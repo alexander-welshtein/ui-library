@@ -1,7 +1,7 @@
 import {ComponentType} from "./ComponentType"
 import Component from "../components/Component"
 
-export default interface ComponentConfig {
+export interface ComponentConfig {
     type?: ComponentType
     value?: string
     width?: string

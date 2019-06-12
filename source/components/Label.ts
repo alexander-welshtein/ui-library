@@ -1,5 +1,5 @@
 import Component from "./Component"
-import ComponentConfig, {Align} from "../core/ComponentConfig"
+import {Align, ComponentConfig} from "../core/ComponentConfig"
 import Config from "../render/Config"
 import PropertyComposer from "../core/PropertyComposer"
 import {Button} from "./Button"

@@ -1,4 +1,4 @@
-import ComponentConfig, {Align} from "./ComponentConfig"
+import {Align, ComponentConfig} from "./ComponentConfig"
 
 export default class PropertyComposer {
     public static basic(style: any, config: ComponentConfig) {

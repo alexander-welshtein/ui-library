@@ -4,5 +4,6 @@ export enum ComponentType {
     Button = 2,
     Field = 3,
     Spacer = 4,
-    Label = 5
+    Label = 5,
+    Image = 6
 }
