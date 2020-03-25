@@ -4,8 +4,8 @@
     "description": "",
     "main": "bundle.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "watch": "webpack --watch"
+        "watch": "webpack --watch --mode development",
+        "dev": "webpack-dev-server --mode development"
     },
     "repository": {
         "type": "git",
@@ -18,15 +18,17 @@
     },
     "homepage": "https://github.com/alexander-welshtein/ui-library#readme",
     "devDependencies": {
-        "webpack": "4.33.0",
-        "webpack-cli": "3.3.3",
-        "typescript": "3.5.1",
-        "ts-loader": "6.0.2",
-        "file-loader": "4.0.0",
-        "raw-loader": "3.0.0",
-        "style-loader": "0.23.1",
-        "css-loader": "2.1.1",
-        "node-sass": "4.12.0",
-        "sass-loader": "7.1.0"
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest",
+        "html-webpack-plugin": "latest",
+        "typescript": "latest",
+        "ts-loader": "latest",
+        "file-loader": "latest",
+        "raw-loader": "latest",
+        "style-loader": "latest",
+        "css-loader": "latest",
+        "node-sass": "latest",
+        "sass-loader": "latest"
     }
 }
