@@ -43,40 +43,32 @@ export default class StyleComposer {
     }
 
     public static padding(style: any, config: ComponentConfig) {
+        // noinspection DuplicatedCode
         if (config.padding) {
-            let top, bottom, left, right
-
-            if (config.padding.all) {
-                top = bottom = left = right = config.padding.all
+            if (typeof config.padding === "string") {
+                style.padding = config.padding
             } else {
-                top = config.padding.top ? config.padding.top : "0"
-                bottom = config.padding.bottom ? config.padding.bottom : "0"
-                left = config.padding.left ? config.padding.left : "0"
-                right = config.padding.right ? config.padding.right : "0"
+                style.padding = `${
+                    (config.padding.top || "0")} ${
+                    (config.padding.right || "0")} ${
+                    (config.padding.bottom || "0")} ${
+                    (config.padding.left || "0")}`
             }
-
-            style.padding = top + " " + right + " " + bottom + " " + left
-        } else {
-            style.padding = "0 0 0 0"
         }
     }
 
     public static margin(style: any, config: ComponentConfig) {
+        // noinspection DuplicatedCode
         if (config.margin) {
-            let top, bottom, left, right
-
-            if (config.margin.all) {
-                top = bottom = left = right = config.margin.all
+            if (typeof config.margin === "string") {
+                style.margin = config.margin
             } else {
-                top = config.margin.top ? config.margin.top : "0"
-                bottom = config.margin.bottom ? config.margin.bottom : "0"
-                left = config.margin.left ? config.margin.left : "0"
-                right = config.margin.right ? config.margin.right : "0"
+                style.margin = `${
+                    (config.margin.top || "0")} ${
+                    (config.margin.right || "0")} ${
+                    (config.margin.bottom || "0")} ${
+                    (config.margin.left || "0")}`
             }
-
-            style.margin = top + " " + right + " " + bottom + " " + left
-        } else {
-            style.margin = "0 0 0 0"
         }
     }
 
@@ -85,7 +77,7 @@ export default class StyleComposer {
     }
 
     public static horizontalAlign(style: any, config: ComponentConfig, defaultValue?: Align) {
-        style.justifyContent =  config.horizontalAlign || (defaultValue || "unset")
+        style.justifyContent = config.horizontalAlign || (defaultValue || "unset")
     }
 
     public static hidden(style: any, config: ComponentConfig) {

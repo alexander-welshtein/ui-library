@@ -9,8 +9,8 @@ export interface ComponentConfig {
     width?: string
     height?: string
     fit?: boolean
-    padding?: Padding
-    margin?: Margin
+    padding?: string | Padding
+    margin?: string | Margin
     verticalAlign?: Align
     horizontalAlign?: Align
     hidden?: boolean
@@ -20,7 +20,6 @@ export interface ComponentConfig {
 }
 
 interface Padding {
-    all?: string
     top?: string
     bottom?: string
     left?: string
@@ -28,7 +27,6 @@ interface Padding {
 }
 
 interface Margin {
-    all?: string
     top?: string
     bottom?: string
     left?: string

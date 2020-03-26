@@ -45,9 +45,7 @@ export default (): ComponentConfig => ({
                 {
                     type: ComponentType.Button,
                     value: "Confirm",
-                    padding: {
-                        all: "8px"
-                    },
+                    padding: "8px",
                     fit: true
                 }
             ]
