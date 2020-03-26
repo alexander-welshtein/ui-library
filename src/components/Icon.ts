@@ -12,14 +12,9 @@ export const renderIcon = (config: ComponentConfig): Config => {
 
     StyleComposer.basic(style, config)
 
-    const result: Config = {
+    return {
         class: "icon",
+        html: config.value,
         style
     }
-
-    if (config.value) {
-        result.html = config.value
-    }
-
-    return result
 }

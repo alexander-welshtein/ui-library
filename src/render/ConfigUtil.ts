@@ -2,6 +2,7 @@ import Config from "./Config"
 
 export function replace(configA: Config, configB: Config): Config {
     for (const key in configB) {
+        // noinspection JSUnfilteredForInLoop
         configA[key] = configB[key]
     }
     return configA
@@ -10,6 +11,7 @@ export function replace(configA: Config, configB: Config): Config {
 export function extend(configA: Config, configB: Config): Config {
     for (const key in configB) {
         if (key in configA) {
+            // noinspection JSUnfilteredForInLoop
             switch (key) {
                 case "tag":
                     configA.tag = configB.tag
@@ -49,6 +51,7 @@ export function extend(configA: Config, configB: Config): Config {
                     }
             }
         } else {
+            // noinspection JSUnfilteredForInLoop
             configA[key] = configB[key]
         }
     }

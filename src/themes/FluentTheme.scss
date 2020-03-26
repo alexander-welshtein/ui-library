@@ -13,18 +13,14 @@
     .label {
         p {
             margin: 8px;
-            color: #9E9E9E;
+            color: #757575;
         }
     }
 
     .button {
-        background-color: transparent;
-        border-style: solid;
-        border-width: 1px;
-        border-color: #9E9E9E;
-        border-radius: 3px;
-        cursor: pointer;
+        background-color: #E0E0E0;
         transition: background-color .2s;
+        cursor: pointer;
 
         &:hover {
             background-color: #EEEEEE;
@@ -32,6 +28,10 @@
 
         &:active {
             background-color: #E0E0E0;
+        }
+
+        & > p {
+            color: #757575;
         }
     }
 

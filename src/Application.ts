@@ -36,6 +36,21 @@ export default (): ComponentConfig => ({
         {
             type: ComponentType.Label,
             value: text
+        },
+        {
+            type: ComponentType.HorizontalLayout,
+            fit: true,
+            horizontalAlign: Align.Right,
+            children: [
+                {
+                    type: ComponentType.Button,
+                    value: "Confirm",
+                    padding: {
+                        all: "8px"
+                    },
+                    fit: true
+                }
+            ]
         }
     ]
 })

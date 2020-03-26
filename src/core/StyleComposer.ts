@@ -65,8 +65,8 @@ export default class StyleComposer {
         if (config.margin) {
             let top, bottom, left, right
 
-            if (config.margin.add) {
-                top = bottom = left = right = config.margin.add
+            if (config.margin.all) {
+                top = bottom = left = right = config.margin.all
             } else {
                 top = config.margin.top ? config.margin.top : "0"
                 bottom = config.margin.bottom ? config.margin.bottom : "0"
@@ -80,12 +80,12 @@ export default class StyleComposer {
         }
     }
 
-    public static verticalAlign(style: any, config: ComponentConfig, defaultValue: Align) {
-        style.alignItems = config.verticalAlign ? config.verticalAlign : defaultValue
+    public static verticalAlign(style: any, config: ComponentConfig, defaultValue?: Align) {
+        style.alignItems = config.verticalAlign || (defaultValue || "unset")
     }
 
-    public static horizontalAlign(style: any, config: ComponentConfig, defaultValue: Align) {
-        style.justifyContent = config.horizontalAlign ? config.horizontalAlign : defaultValue
+    public static horizontalAlign(style: any, config: ComponentConfig, defaultValue?: Align) {
+        style.justifyContent =  config.horizontalAlign || (defaultValue || "unset")
     }
 
     public static hidden(style: any, config: ComponentConfig) {

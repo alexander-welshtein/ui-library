@@ -7,5 +7,5 @@ export default interface Config {
     attrs?: {}
     style?: {}
     children?: Config[]
-    onRender?: ((element: HTMLElement, config?: Config) => void)
+    onRender?: (element: HTMLElement, config?: Config) => void
 }

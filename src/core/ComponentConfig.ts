@@ -28,7 +28,7 @@ interface Padding {
 }
 
 interface Margin {
-    add?: string
+    all?: string
     top?: string
     bottom?: string
     left?: string
@@ -36,7 +36,7 @@ interface Margin {
 }
 
 export enum Align {
-    Left = "left",
-    Right = "right",
+    Left = "flex-start",
+    Right = "flex-end",
     Center = "center"
 }
