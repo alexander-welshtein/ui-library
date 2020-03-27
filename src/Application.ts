@@ -22,7 +22,7 @@ export default (): ComponentConfig => ({
             children: [
                 {
                     type: ComponentType.Label,
-                    value: "Header",
+                    value: "Header"
                 },
                 {
                     type: ComponentType.Icon,
@@ -35,7 +35,29 @@ export default (): ComponentConfig => ({
         },
         {
             type: ComponentType.Label,
-            value: text
+            value: text,
+            fit: true
+        },
+        {
+            type: ComponentType.VerticalLayout,
+            padding: "8px",
+            children: [
+                {
+                    type: ComponentType.Field,
+                    value: "Name",
+                    fit: true,
+                    margin: {
+                        bottom: "16px"
+                    },
+                    labelWidth: "80px"
+                },
+                {
+                    type: ComponentType.Field,
+                    value: "Email",
+                    fit: true,
+                    labelWidth: "80px"
+                }
+            ]
         },
         {
             type: ComponentType.HorizontalLayout,
@@ -46,7 +68,12 @@ export default (): ComponentConfig => ({
                     type: ComponentType.Button,
                     value: "Confirm",
                     padding: "8px",
-                    fit: true
+                    fit: true,
+                    onRender: component => {
+                        component.element.onclick = () => {
+                            alert("123")
+                        }
+                    }
                 }
             ]
         }

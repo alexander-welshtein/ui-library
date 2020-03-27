@@ -17,6 +17,8 @@ export interface ComponentConfig {
     gravity?: number
     children?: ComponentConfig[]
     onRender?: ((component: Component) => void)
+
+    labelWidth?: string
 }
 
 interface Padding {
