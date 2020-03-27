@@ -56,6 +56,27 @@ export default (): ComponentConfig => ({
                     value: "Email",
                     fit: true,
                     labelWidth: "80px"
+                },
+                {
+                    type: ComponentType.VerticalList,
+                    items: [
+                        {
+                            id: 1,
+                            name: "item_1"
+                        },
+                        {
+                            id: 2,
+                            name: "item_2"
+                        }
+                    ],
+                    adapter: (item: {
+                        id: number,
+                        name: string
+                    }) => ({
+                        type: ComponentType.Label,
+                        value: `Item №${item.id} [${item.name}]`,
+                        fit: true
+                    })
                 }
             ]
         },

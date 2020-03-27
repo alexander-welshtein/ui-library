@@ -10,6 +10,15 @@
         box-sizing: border-box;
     }
 
+    .horizontal-list {
+        box-sizing: border-box;
+    }
+
+    .vertical-list {
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
     .label {
         p {
             margin: 8px;

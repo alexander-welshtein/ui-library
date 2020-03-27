@@ -6,5 +6,7 @@ export enum ComponentType {
     Spacer,
     Label,
     Image,
-    Icon
+    Icon,
+    VerticalList,
+    HorizontalList
 }

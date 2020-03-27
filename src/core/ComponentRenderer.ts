@@ -3,13 +3,13 @@ import Config from "../render/Config"
 import {ComponentType} from "./ComponentType"
 import {renderButton} from "../components/Button"
 import {renderField} from "../components/Field"
-import {renderHorizontalLayout} from "../components/HorizontalLayout"
-import {renderVerticalLayout} from "../components/VerticalLayout"
 import {renderSpacer} from "../components/Spacer"
 import {renderLabel} from "../components/Label"
 import {renderImage} from "../components/Image"
 import {renderContent} from "../components/Content"
 import {renderIcon} from "../components/Icon"
+import {renderList} from "../components/List"
+import {renderLinearLayout} from "../components/LinearLayout"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -38,9 +38,9 @@ export default class ComponentRenderer {
     private static toConfig(config: ComponentConfig): Config {
         switch (config.type) {
             case ComponentType.VerticalLayout:
-                return renderVerticalLayout(config)
+                return renderLinearLayout(config, false)
             case ComponentType.HorizontalLayout:
-                return renderHorizontalLayout(config)
+                return renderLinearLayout(config, true)
             case ComponentType.Button:
                 return renderButton(config)
             case ComponentType.Field:
@@ -53,6 +53,10 @@ export default class ComponentRenderer {
                 return renderImage(config)
             case ComponentType.Icon:
                 return renderIcon(config)
+            case ComponentType.VerticalList:
+                return renderList(config, false)
+            case ComponentType.HorizontalList:
+                return renderList(config, true)
             default:
                 return renderContent(config)
         }

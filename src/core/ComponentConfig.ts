@@ -18,7 +18,12 @@ export interface ComponentConfig {
     children?: ComponentConfig[]
     onRender?: ((component: Component) => void)
 
+    // Field
     labelWidth?: string
+
+    // List
+    items?: any[]
+    adapter?: (item: any) => ComponentConfig
 }
 
 interface Padding {

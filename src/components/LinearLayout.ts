@@ -3,11 +3,11 @@ import {ComponentConfig} from "../core/ComponentConfig"
 import Config from "../render/Config"
 import StyleComposer from "../core/StyleComposer"
 
-export class HorizontalLayout extends Component {
+export class LinearLayout extends Component {
 
 }
 
-export const renderHorizontalLayout = (config: ComponentConfig): Config => {
+export const renderLinearLayout = (config: ComponentConfig, horizontal: boolean): Config => {
     const style = {}
 
     StyleComposer.basic(style, config)
@@ -15,7 +15,7 @@ export const renderHorizontalLayout = (config: ComponentConfig): Config => {
     StyleComposer.verticalAlign(style, config)
 
     return {
-        class: "horizontal-layout",
+        class: horizontal ? "horizontal-layout" : "vertical-layout",
         style
     }
 }
