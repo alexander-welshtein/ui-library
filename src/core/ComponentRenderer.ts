@@ -11,6 +11,7 @@ import {renderIcon} from "../components/Icon"
 import {renderList} from "../components/List"
 import {renderLinearLayout} from "../components/LinearLayout"
 import {renderTable} from "../components/Table"
+import {renderModalWindow} from "../components/ModalWindow"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -22,15 +23,6 @@ export default class ComponentRenderer {
 
         if (componentConfig.class) {
             config.class += ` ${componentConfig.class}`
-        }
-
-        if (componentConfig.children) {
-            for (const child of componentConfig.children) {
-                if (!config.children) {
-                    config.children = []
-                }
-                config.children.push(this.render(child))
-            }
         }
 
         return config
@@ -60,6 +52,8 @@ export default class ComponentRenderer {
                 return renderList(config, true)
             case ComponentType.Table:
                 return renderTable(config)
+            case ComponentType.ModalWindow:
+                return renderModalWindow(config)
             default:
                 return renderContent(config)
         }

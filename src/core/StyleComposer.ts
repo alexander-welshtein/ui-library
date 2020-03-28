@@ -17,8 +17,6 @@ export default class StyleComposer {
             style.width = config.width
             style.flexShrink = "0"
             style.flexGrow = "0"
-        } else {
-            style.width = "auto"
         }
     }
 
@@ -27,8 +25,6 @@ export default class StyleComposer {
             style.height = config.height
             style.flexShrink = "0"
             style.flexGrow = "0"
-        } else {
-            style.height = "auto"
         }
     }
 

@@ -9,5 +9,6 @@ export enum ComponentType {
     Icon,
     VerticalList,
     HorizontalList,
-    Table
+    Table,
+    ModalWindow
 }

@@ -34,13 +34,12 @@ export const renderList = (config: ComponentConfig, horizontal: boolean): Config
 
     StyleComposer.basic(style, config)
 
-    config.children = config.items.map(item => config.adapter(item))
-
     return {
         class: horizontal ? "horizontal-list" : "vertical-list",
         style,
         onRender: config.onRender ? element => {
             config.onRender(new List(element, config))
-        } : undefined
+        } : undefined,
+        children: config.items.map(item => config.adapter(item)).map(config => ComponentRenderer.render(config))
     }
 }

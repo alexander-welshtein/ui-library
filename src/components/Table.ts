@@ -49,27 +49,26 @@ export const renderTable = (config: ComponentConfig): Config => {
 
     StyleComposer.basic(style, config)
 
-    config.children = [
-        {
-            type: ComponentType.HorizontalLayout,
-            class: "header",
-            children: config.header
-        },
-        {
-            type: ComponentType.VerticalLayout,
-            class: "content",
-            children: config.items.map(item => config.rowAdapter(item)).map((children): ComponentConfig => ({
-                type: ComponentType.HorizontalLayout,
-                children
-            }))
-        }
-    ]
-
     return {
         class: "table",
         style,
         onRender: config.onRender ? element => {
             config.onRender(new Table(element, config))
-        } : undefined
+        } : undefined,
+        children: [
+            {
+                type: ComponentType.HorizontalLayout,
+                class: "header",
+                children: config.header
+            },
+            {
+                type: ComponentType.VerticalLayout,
+                class: "content",
+                children: config.items.map(item => config.rowAdapter(item)).map((children): ComponentConfig => ({
+                    type: ComponentType.HorizontalLayout,
+                    children
+                }))
+            }
+        ].map(config => ComponentRenderer.render(config))
     }
 }
