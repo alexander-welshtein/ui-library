@@ -24,6 +24,10 @@ export interface ComponentConfig {
     // List
     items?: any[]
     adapter?: (item: any) => ComponentConfig
+
+    // Table
+    header?: ComponentConfig[]
+    rowAdapter?: (item: any) => ComponentConfig[]
 }
 
 interface Padding {

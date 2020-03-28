@@ -10,6 +10,7 @@ import {renderContent} from "../components/Content"
 import {renderIcon} from "../components/Icon"
 import {renderList} from "../components/List"
 import {renderLinearLayout} from "../components/LinearLayout"
+import {renderTable} from "../components/Table"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -20,7 +21,7 @@ export default class ComponentRenderer {
         }
 
         if (componentConfig.class) {
-            config.class += componentConfig.class
+            config.class += ` ${componentConfig.class}`
         }
 
         if (componentConfig.children) {
@@ -57,6 +58,8 @@ export default class ComponentRenderer {
                 return renderList(config, false)
             case ComponentType.HorizontalList:
                 return renderList(config, true)
+            case ComponentType.Table:
+                return renderTable(config)
             default:
                 return renderContent(config)
         }

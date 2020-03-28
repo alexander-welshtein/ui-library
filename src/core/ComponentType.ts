@@ -8,5 +8,6 @@ export enum ComponentType {
     Image,
     Icon,
     VerticalList,
-    HorizontalList
+    HorizontalList,
+    Table
 }

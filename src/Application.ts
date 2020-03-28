@@ -4,7 +4,6 @@ import menuIcon from "../assets/menu.svg"
 import text from "../assets/text.txt"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
-import {List} from "./components/List"
 
 export default (): ComponentConfig => ({
     type: ComponentType.VerticalLayout,
@@ -59,7 +58,7 @@ export default (): ComponentConfig => ({
                     labelWidth: "80px"
                 },
                 {
-                    type: ComponentType.VerticalList,
+                    type: ComponentType.Table,
                     fit: true,
                     items: [
                         {
@@ -71,22 +70,33 @@ export default (): ComponentConfig => ({
                             name: "item_2"
                         }
                     ],
-                    adapter: (item: {
+                    header: [
+                        {
+                            type: ComponentType.Label,
+                            value: "Id",
+                            gravity: .2
+                        },
+                        {
+                            type: ComponentType.Label,
+                            value: "Name",
+                            gravity: .8
+                        }
+                    ],
+                    rowAdapter: (item: {
                         id: number,
                         name: string
-                    }) => ({
-                        type: ComponentType.Label,
-                        value: `Item №${item.id} [${item.name}]`,
-                        fit: true
-                    }),
-                    onRender: (component: List) => {
-                        component.addItems({
-                            id: 3,
-                            name: "item_3"
-                        })
-
-                        component.removeItem(0)
-                    }
+                    }) => [
+                        {
+                            type: ComponentType.Label,
+                            value: String(item.id),
+                            gravity: .2
+                        },
+                        {
+                            type: ComponentType.Label,
+                            value: String(item.name),
+                            gravity: .8
+                        }
+                    ]
                 }
             ]
         },
