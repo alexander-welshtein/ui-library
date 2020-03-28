@@ -4,7 +4,7 @@ import menuIcon from "../assets/menu.svg"
 import text from "../assets/text.txt"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
-import {Label} from "./components/Label"
+import {List} from "./components/List"
 
 export default (): ComponentConfig => ({
     type: ComponentType.VerticalLayout,
@@ -37,10 +37,7 @@ export default (): ComponentConfig => ({
         {
             type: ComponentType.Label,
             value: text,
-            fit: true,
-            onRender: (component: Label) => {
-                component.setValue("sdfsfd")
-            }
+            fit: true
         },
         {
             type: ComponentType.VerticalLayout,
@@ -81,7 +78,15 @@ export default (): ComponentConfig => ({
                         type: ComponentType.Label,
                         value: `Item №${item.id} [${item.name}]`,
                         fit: true
-                    })
+                    }),
+                    onRender: (component: List) => {
+                        component.addItems({
+                            id: 3,
+                            name: "item_3"
+                        })
+
+                        component.removeItem(0)
+                    }
                 }
             ]
         },

@@ -17,6 +17,6 @@ export const renderImage = (config: ComponentConfig): Config => {
         style,
         onRender: config.onRender ? element => {
             config.onRender(new Image(element, config))
-        }: undefined
+        } : undefined
     }
 }
