@@ -4,6 +4,7 @@ import menuIcon from "../assets/menu.svg"
 import text from "../assets/text.txt"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
+import {Label} from "./components/Label"
 
 export default (): ComponentConfig => ({
     type: ComponentType.VerticalLayout,
@@ -36,7 +37,10 @@ export default (): ComponentConfig => ({
         {
             type: ComponentType.Label,
             value: text,
-            fit: true
+            fit: true,
+            onRender: (component: Label) => {
+                component.setValue("sdfsfd")
+            }
         },
         {
             type: ComponentType.VerticalLayout,
@@ -59,6 +63,7 @@ export default (): ComponentConfig => ({
                 },
                 {
                     type: ComponentType.VerticalList,
+                    fit: true,
                     items: [
                         {
                             id: 1,
@@ -91,9 +96,9 @@ export default (): ComponentConfig => ({
                     padding: "8px",
                     fit: true,
                     onRender: component => {
-                        component.element.onclick = () => {
+                        component.on("click", () => {
                             alert("123")
-                        }
+                        })
                     }
                 }
             ]

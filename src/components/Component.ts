@@ -9,11 +9,31 @@ export default abstract class Component {
         this._config = config
     }
 
-    get config(): ComponentConfig {
+    protected get config(): ComponentConfig {
         return this._config
     }
 
-    get element(): HTMLElement {
+    protected get element(): HTMLElement {
         return this._element
+    }
+
+
+    on(event: string, listener: (event: Event) => void): (event: Event) => void {
+        this.element.addEventListener(event, listener)
+        return listener
+    }
+
+
+    deleteEventListener(event: string, listener: (event: Event) => void) {
+        this.element.removeEventListener(event, listener)
+    }
+
+
+    addClass(name: string) {
+        this.element.classList.add(name)
+    }
+
+    deleteClass(name: string) {
+        this.element.classList.remove(name)
     }
 }

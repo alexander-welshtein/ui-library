@@ -4,6 +4,14 @@ import Config from "../render/Config"
 import StyleComposer from "../core/StyleComposer"
 
 export class Button extends Component {
+    setValue(value: string) {
+        this.config.value = value
+        this.element.innerText = value
+    }
+
+    getValue() {
+        return this.config.value
+    }
 }
 
 export const renderButton = (config: ComponentConfig): Config => {
