@@ -28,6 +28,9 @@ export interface ComponentConfig {
     // Table
     header?: ComponentConfig[]
     rowAdapter?: (item: any) => ComponentConfig[]
+
+    // Window
+    modal?: boolean
 }
 
 interface Padding {

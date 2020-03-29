@@ -1,8 +1,8 @@
 import {ComponentType} from "./core/ComponentType"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 
-export default {
-    type: ComponentType.ModalWindow,
+export const MainWindow: ComponentConfig = {
+    type: ComponentType.Window,
     width: "400px",
     height: "200px",
     children: [
@@ -47,4 +47,4 @@ export default {
             ]
         }
     ]
-} as ComponentConfig
+}

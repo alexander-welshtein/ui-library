@@ -11,7 +11,7 @@ import {renderIcon} from "../components/Icon"
 import {renderList} from "../components/List"
 import {renderLinearLayout} from "../components/LinearLayout"
 import {renderTable} from "../components/Table"
-import {renderModalWindow} from "../components/ModalWindow"
+import {renderWindow} from "../components/Window"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -52,8 +52,8 @@ export default class ComponentRenderer {
                 return renderList(config, true)
             case ComponentType.Table:
                 return renderTable(config)
-            case ComponentType.ModalWindow:
-                return renderModalWindow(config)
+            case ComponentType.Window:
+                return renderWindow(config)
             default:
                 return renderContent(config)
         }

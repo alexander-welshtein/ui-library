@@ -4,8 +4,7 @@ import {ComponentConfig} from "../core/ComponentConfig"
 import StyleComposer from "../core/StyleComposer"
 import ComponentRenderer from "../core/ComponentRenderer"
 
-export class ModalWindow extends Component {
-
+export class Window extends Component {
     show() {
         this.element.style.display = "inline"
     }
@@ -15,12 +14,12 @@ export class ModalWindow extends Component {
     }
 }
 
-export const renderModalWindow = (config: ComponentConfig): Config => {
+export const renderWindow = (config: ComponentConfig): Config => {
     const style = {}
 
     StyleComposer.basic(style, config)
 
-    return {
+    return config.modal ? {
         class: "modal-window",
         children: [
             {
@@ -28,7 +27,7 @@ export const renderModalWindow = (config: ComponentConfig): Config => {
                 style,
                 children: config.children.map(config => ComponentRenderer.render(config)),
                 onRender: config.onRender ? element => {
-                    config.onRender(new ModalWindow(element, config))
+                    config.onRender(new Window(element, config))
                 } : undefined
             }
         ],
@@ -41,5 +40,12 @@ export const renderModalWindow = (config: ComponentConfig): Config => {
                 event.stopPropagation()
             })
         }
+    } : {
+        class: "window",
+        style,
+        children: config.children.map(config => ComponentRenderer.render(config)),
+        onRender: config.onRender ? element => {
+            config.onRender(new Window(element, config))
+        } : undefined
     }
 }

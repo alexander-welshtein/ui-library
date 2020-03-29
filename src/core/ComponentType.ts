@@ -10,5 +10,5 @@ export enum ComponentType {
     VerticalList,
     HorizontalList,
     Table,
-    ModalWindow
+    Window
 }
