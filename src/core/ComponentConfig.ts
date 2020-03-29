@@ -28,6 +28,9 @@ export interface ComponentConfig {
     children?: ComponentConfig[]
     hook?: Component
 
+    // Button
+    primary?: boolean
+
     // Field
     labelWidth?: string
 

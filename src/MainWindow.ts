@@ -21,12 +21,13 @@ export class MainWindow {
                     children: [
                         {
                             type: ComponentType.HorizontalLayout,
-                            height: "48px",
                             verticalAlign: Align.Center,
+                            fit: true,
                             children: [
                                 {
                                     type: ComponentType.Label,
-                                    value: "Modal window"
+                                    value: "Modal window",
+                                    padding: "16px"
                                 }
                             ]
                         },
@@ -35,23 +36,25 @@ export class MainWindow {
                         },
                         {
                             type: ComponentType.HorizontalLayout,
-                            padding: "8px",
+                            padding: "16px",
                             fit: true,
+                            horizontalAlign: Align.Right,
                             children: [
                                 {
                                     type: ComponentType.Button,
                                     value: "Cancel",
-                                    padding: "8px",
+                                    fit: true,
                                     hook: this.cancelButton
                                 },
                                 {
                                     type: ComponentType.Spacer,
-                                    width: "8px"
+                                    width: "16px"
                                 },
                                 {
                                     type: ComponentType.Button,
                                     value: "Confirm",
-                                    padding: "8px",
+                                    fit: true,
+                                    primary: true,
                                     hook: this.confirmButton
                                 }
                             ]

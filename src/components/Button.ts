@@ -22,7 +22,7 @@ export const renderButton = (config: ComponentConfig): Config => {
     StyleComposer.verticalAlign(style, config, Align.Center)
 
     return {
-        class: "button",
+        class: `button ${config.primary ? "primary-button" : "default-button"}`,
         style,
         onRender: config.hook ? element => {
             config.hook.element = element
