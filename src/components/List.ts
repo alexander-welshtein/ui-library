@@ -6,8 +6,8 @@ import Renderer from "../render/Renderer"
 import ComponentRenderer from "../core/ComponentRenderer"
 import ElementUtil from "../render/ElementUtil"
 
-export class List extends Component {
-    addItems(...items: any[]) {
+export class List<T> extends Component {
+    addItems(...items: T[]) {
         for (const item of items) {
             this.config.items.push(item)
             this.element.appendChild(Renderer.render(ComponentRenderer.render(this.config.adapter(item))))
@@ -23,11 +23,16 @@ export class List extends Component {
         ElementUtil.clear(this.element)
     }
 
-    set(items: any[]) {
+    setItems(items: T[]) {
         this.clear()
         this.addItems(...items)
     }
+
+    getItems(): T[] {
+        return this.config.items
+    }
 }
+
 
 export const renderList = (config: ComponentConfig, horizontal: boolean): Config => {
     const style = {}
@@ -35,7 +40,7 @@ export const renderList = (config: ComponentConfig, horizontal: boolean): Config
     StyleComposer.basic(style, config)
 
     return {
-        class: horizontal ? "horizontal-list" : "vertical-list",
+        class: `list ${horizontal ? "" : "vertical-list"}`,
         style,
         onRender: config.hook ? element => {
             config.hook.setElement(element)

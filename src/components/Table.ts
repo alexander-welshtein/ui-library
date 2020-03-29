@@ -7,7 +7,7 @@ import Renderer from "../render/Renderer"
 import ComponentRenderer from "../core/ComponentRenderer"
 import ElementUtil from "../render/ElementUtil"
 
-export class Table extends Component {
+export class Table<T> extends Component {
 
     private content: HTMLElement
 
@@ -19,7 +19,7 @@ export class Table extends Component {
     }
 
 
-    addItems(...items: any[]) {
+    addItems(...items: T[]) {
         for (const item of items) {
             this.config.items.push(item)
             this.content.appendChild(Renderer.render(ComponentRenderer.render({
@@ -38,9 +38,13 @@ export class Table extends Component {
         ElementUtil.clear(this.content)
     }
 
-    set(items: any[]) {
+    setItems(items: T[]) {
         this.clear()
         this.addItems(...items)
+    }
+
+    getItems(): T[] {
+        return this.config.items
     }
 }
 

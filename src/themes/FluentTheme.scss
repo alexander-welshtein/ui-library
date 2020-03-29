@@ -10,13 +10,25 @@
         box-sizing: border-box;
     }
 
-    .horizontal-list {
+    .list {
         box-sizing: border-box;
+
+        .label {
+            color: #9E9E9E;
+        }
+
+        & > div {
+            background-color: #FAFAFA;
+            transition: background-color .2s;
+
+            &:hover {
+                background-color: #EEEEEE;
+            }
+        }
     }
 
     .vertical-list {
         flex-direction: column;
-        box-sizing: border-box;
     }
 
     .table {
@@ -27,8 +39,19 @@
             color: #757575;
         }
 
-        & > .content .label {
-            color: #9E9E9E;
+        & > .content {
+            & > div {
+                background-color: #FAFAFA;
+                transition: background-color .2s;
+
+                &:hover {
+                    background-color: #EEEEEE;
+                }
+            }
+
+            .label {
+                color: #9E9E9E;
+            }
         }
     }
 

@@ -106,6 +106,38 @@ export class Application {
                                     gravity: .8
                                 }
                             ]
+                        },
+                        {
+                            type: ComponentType.VerticalList,
+                            fit: true,
+                            items: [
+                                {
+                                    id: 1,
+                                    name: "item_1"
+                                },
+                                {
+                                    id: 2,
+                                    name: "item_2"
+                                }
+                            ],
+                            adapter: (item: {
+                                id: number,
+                                name: string
+                            }) => ({
+                                type: ComponentType.HorizontalLayout,
+                                children: [
+                                    {
+                                        type: ComponentType.Label,
+                                        label: String(item.id),
+                                        gravity: .2
+                                    },
+                                    {
+                                        type: ComponentType.Label,
+                                        label: String(item.name),
+                                        gravity: .8
+                                    }
+                                ]
+                            })
                         }
                     ]
                 },
