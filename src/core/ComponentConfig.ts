@@ -25,6 +25,7 @@ export interface ComponentConfig {
     horizontalAlign?: Align
     hidden?: boolean
     gravity?: number
+    disabled?: boolean
     children?: ComponentConfig[]
     hook?: Component
 

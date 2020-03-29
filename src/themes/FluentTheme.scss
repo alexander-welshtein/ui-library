@@ -80,6 +80,15 @@
         }
     }
 
+    .disabled-button {
+        background-color: #EEEEEE;
+        pointer-events: none;
+
+        & > p {
+            color: #9E9E9E;
+        }
+    }
+
     .image {
         background-image: url("../../assets/image_0.jpg");
         background-size: cover;

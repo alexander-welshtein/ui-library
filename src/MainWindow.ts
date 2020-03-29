@@ -55,6 +55,7 @@ export class MainWindow {
                                     value: "Confirm",
                                     fit: true,
                                     primary: true,
+                                    disabled: true,
                                     hook: this.confirmButton
                                 }
                             ]
