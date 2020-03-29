@@ -11,6 +11,8 @@ export class Table<T> extends Component {
 
     private content: HTMLElement
 
+    private onItemClickListener: (event: MouseEvent) => void
+
 
     setElement(value: HTMLElement) {
         super.element = value
@@ -18,10 +20,8 @@ export class Table<T> extends Component {
         this.content = this.element.children[1] as HTMLElement
     }
 
-
     addItems(...items: T[]) {
         for (const item of items) {
-            this.config.items.push(item)
             this.content.appendChild(Renderer.render(ComponentRenderer.render({
                 type: ComponentType.HorizontalLayout,
                 children: this.config.rowAdapter(item)
@@ -30,7 +30,6 @@ export class Table<T> extends Component {
     }
 
     removeItem(index: number) {
-        this.config.items.splice(index, 1)
         ElementUtil.deleteChild(this.content, index)
     }
 
@@ -43,8 +42,18 @@ export class Table<T> extends Component {
         this.addItems(...items)
     }
 
-    getItems(): T[] {
-        return this.config.items
+    // noinspection DuplicatedCode
+    setOnItemClick(listener: (index: number) => void) {
+        if (this.onItemClickListener) {
+            this.content.removeEventListener("click", this.onItemClickListener)
+        }
+
+        this.content.addEventListener("click", this.onItemClickListener = (event: MouseEvent) => {
+            const itemElement = ElementUtil.getChildWithParentBy(event.target as HTMLElement, this.content)
+            const itemIndex = Array.from(this.content.children).indexOf(itemElement)
+
+            listener(itemIndex)
+        })
     }
 }
 

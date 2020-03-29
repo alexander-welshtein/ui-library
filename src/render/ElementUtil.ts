@@ -21,4 +21,12 @@ export default class ElementUtil {
     static refresh(element: HTMLElement, config: Config) {
         element.parentElement.replaceChild(Renderer.render(config), element)
     }
+
+    static getChildWithParentBy(element: HTMLElement, parent: HTMLElement) {
+        while (element.parentNode !== parent) {
+            element = element.parentNode as HTMLElement
+        }
+
+        return element
+    }
 }

@@ -7,15 +7,17 @@ import ComponentRenderer from "../core/ComponentRenderer"
 import ElementUtil from "../render/ElementUtil"
 
 export class List<T> extends Component {
+
+    private onItemClickListener: (event: MouseEvent) => void
+
+
     addItems(...items: T[]) {
         for (const item of items) {
-            this.config.items.push(item)
             this.element.appendChild(Renderer.render(ComponentRenderer.render(this.config.adapter(item))))
         }
     }
 
     removeItem(index: number) {
-        this.config.items.splice(index, 1)
         ElementUtil.deleteChild(this.element, index)
     }
 
@@ -28,8 +30,18 @@ export class List<T> extends Component {
         this.addItems(...items)
     }
 
-    getItems(): T[] {
-        return this.config.items
+    // noinspection DuplicatedCode
+    setOnItemClick(listener: (index: number) => void) {
+        if (this.onItemClickListener) {
+            this.element.removeEventListener("click", this.onItemClickListener)
+        }
+
+        this.element.addEventListener("click", this.onItemClickListener = (event: MouseEvent) => {
+            const itemElement = ElementUtil.getChildWithParentBy(event.target as HTMLElement, this.element)
+            const itemIndex = Array.from(this.element.children).indexOf(itemElement)
+
+            listener(itemIndex)
+        })
     }
 }
 

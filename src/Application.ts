@@ -1,14 +1,23 @@
 import "./Application.scss"
 import "./themes/FluentTheme.scss"
 import menuIcon from "../assets/menu.svg"
-import text from "../assets/text.txt"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {ComponentType} from "./core/ComponentType"
 import {Field} from "./components/Field"
+import {List} from "./components/List"
+import {Table} from "./components/Table"
 
 export class Application {
 
     private readonly field = new Field()
+    private readonly list = new List<{
+        id: number,
+        name: string
+    }>()
+    private readonly table = new Table<{
+        id: number,
+        name: string
+    }>()
 
 
     config(): ComponentConfig {
@@ -41,33 +50,32 @@ export class Application {
                     ]
                 },
                 {
-                    type: ComponentType.Label,
-                    label: text,
-                    fit: true
-                },
-                {
                     type: ComponentType.VerticalLayout,
-                    padding: "8px",
+                    padding: "24px",
                     children: [
                         {
                             type: ComponentType.Field,
+                            hook: this.field,
                             label: "Name",
                             placeholder: "Name",
                             fit: true,
                             margin: {
                                 bottom: "16px"
                             },
-                            labelWidth: "80px",
-                            hook: this.field
+                            labelWidth: "80px"
                         },
                         {
                             type: ComponentType.Field,
                             label: "Email",
                             fit: true,
+                            margin: {
+                                bottom: "32px"
+                            },
                             labelWidth: "80px"
                         },
                         {
                             type: ComponentType.Table,
+                            hook: this.table,
                             fit: true,
                             items: [
                                 {
@@ -109,6 +117,7 @@ export class Application {
                         },
                         {
                             type: ComponentType.VerticalList,
+                            hook: this.list,
                             fit: true,
                             items: [
                                 {
@@ -160,5 +169,13 @@ export class Application {
 
     initialize() {
         this.field.clear()
+
+        this.list.setOnItemClick(index => {
+            console.log(index)
+        })
+
+        this.table.setOnItemClick(index => {
+            console.log(index)
+        })
     }
 }
