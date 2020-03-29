@@ -14,6 +14,7 @@ export class MainWindow {
             type: ComponentType.Window,
             width: "400px",
             height: "200px",
+            modal: true,
             children: [
                 {
                     type: ComponentType.VerticalLayout,

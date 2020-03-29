@@ -25,21 +25,18 @@ export const renderWindow = (config: ComponentConfig): Config => {
             {
                 class: "content",
                 style,
-                children: config.children.map(config => ComponentRenderer.render(config)),
-                onRender: config.hook ? element => {
-                    config.hook.element = element
-                    config.hook.config = config
-                } : undefined
+                children: config.children.map(config => ComponentRenderer.render(config))
             }
         ],
         onRender: element => {
-            element.addEventListener("click", () => {
-                element.style.display = "none"
-            })
-
             element.children[0].addEventListener("click", event => {
                 event.stopPropagation()
             })
+
+            if (config.hook) {
+                config.hook.element = element
+                config.hook.config = config
+            }
         }
     } : {
         class: "window",
