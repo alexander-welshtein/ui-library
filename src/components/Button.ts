@@ -24,8 +24,9 @@ export const renderButton = (config: ComponentConfig): Config => {
     return {
         class: "button",
         style,
-        onRender: config.onRender ? element => {
-            config.onRender(new Button(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined,
         children: config.value ? [
             {

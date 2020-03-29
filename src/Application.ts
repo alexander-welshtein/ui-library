@@ -109,12 +109,7 @@ export default (): ComponentConfig => ({
                     type: ComponentType.Button,
                     value: "Confirm",
                     padding: "8px",
-                    fit: true,
-                    onRender: component => {
-                        component.on("click", () => {
-                            alert("123")
-                        })
-                    }
+                    fit: true
                 }
             ]
         }

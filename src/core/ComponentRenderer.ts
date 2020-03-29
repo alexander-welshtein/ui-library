@@ -9,7 +9,7 @@ import {renderImage} from "../components/Image"
 import {renderContent} from "../components/Content"
 import {renderIcon} from "../components/Icon"
 import {renderList} from "../components/List"
-import {renderLinearLayout} from "../components/LinearLayout"
+import {renderLayout} from "../components/Layout"
 import {renderTable} from "../components/Table"
 import {renderWindow} from "../components/Window"
 
@@ -31,9 +31,9 @@ export default class ComponentRenderer {
     private static toConfig(config: ComponentConfig): Config {
         switch (config.type) {
             case ComponentType.VerticalLayout:
-                return renderLinearLayout(config, false)
+                return renderLayout(config, false)
             case ComponentType.HorizontalLayout:
-                return renderLinearLayout(config, true)
+                return renderLayout(config, true)
             case ComponentType.Button:
                 return renderButton(config)
             case ComponentType.Field:

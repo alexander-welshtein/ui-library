@@ -1,7 +1,7 @@
-import Component from "./Component";
-import {ComponentConfig} from "../core/ComponentConfig";
-import Config from "../render/Config";
-import StyleComposer from "../core/StyleComposer";
+import Component from "./Component"
+import {ComponentConfig} from "../core/ComponentConfig"
+import Config from "../render/Config"
+import StyleComposer from "../core/StyleComposer"
 
 export class Image extends Component {
 
@@ -15,8 +15,9 @@ export const renderImage = (config: ComponentConfig): Config => {
     return {
         class: "image",
         style,
-        onRender: config.onRender ? element => {
-            config.onRender(new Image(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined
     }
 }

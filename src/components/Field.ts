@@ -38,8 +38,9 @@ export const renderField = (config: ComponentConfig): Config => {
     return {
         class: "field",
         style,
-        onRender: config.onRender ? element => {
-            config.onRender(new Field(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined,
         children
     }

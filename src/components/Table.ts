@@ -12,10 +12,10 @@ export class Table extends Component {
     private readonly content: HTMLElement
 
 
-    constructor(element: HTMLElement, config: ComponentConfig) {
-        super(element, config)
+    constructor() {
+        super()
 
-        this.content = element.children[1] as HTMLElement
+        this.content = this.element.children[1] as HTMLElement
     }
 
 
@@ -52,8 +52,9 @@ export const renderTable = (config: ComponentConfig): Config => {
     return {
         class: "table",
         style,
-        onRender: config.onRender ? element => {
-            config.onRender(new Table(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined,
         children: [
             {

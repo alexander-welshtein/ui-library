@@ -9,14 +9,24 @@ export interface ComponentConfig {
     width?: string
     height?: string
     fit?: boolean
-    padding?: string | Padding
-    margin?: string | Margin
+    padding?: string | {
+        top?: string
+        bottom?: string
+        left?: string
+        right?: string
+    }
+    margin?: string | {
+        top?: string
+        bottom?: string
+        left?: string
+        right?: string
+    }
     verticalAlign?: Align
     horizontalAlign?: Align
     hidden?: boolean
     gravity?: number
     children?: ComponentConfig[]
-    onRender?: ((component: Component) => void)
+    hook?: Component
 
     // Field
     labelWidth?: string
@@ -31,20 +41,6 @@ export interface ComponentConfig {
 
     // Window
     modal?: boolean
-}
-
-interface Padding {
-    top?: string
-    bottom?: string
-    left?: string
-    right?: string
-}
-
-interface Margin {
-    top?: string
-    bottom?: string
-    left?: string
-    right?: string
 }
 
 export enum Align {

@@ -25,8 +25,9 @@ export const renderLabel = (config: ComponentConfig): Config => {
         class: "label",
         style,
         text: config.value,
-        onRender: config.onRender ? element => {
-            config.onRender(new Label(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined
     }
 }

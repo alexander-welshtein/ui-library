@@ -26,8 +26,9 @@ export const renderWindow = (config: ComponentConfig): Config => {
                 class: "content",
                 style,
                 children: config.children.map(config => ComponentRenderer.render(config)),
-                onRender: config.onRender ? element => {
-                    config.onRender(new Window(element, config))
+                onRender: config.hook ? element => {
+                    config.hook.element = element
+                    config.hook.config = config
                 } : undefined
             }
         ],
@@ -44,8 +45,9 @@ export const renderWindow = (config: ComponentConfig): Config => {
         class: "window",
         style,
         children: config.children.map(config => ComponentRenderer.render(config)),
-        onRender: config.onRender ? element => {
-            config.onRender(new Window(element, config))
+        onRender: config.hook ? element => {
+            config.hook.element = element
+            config.hook.config = config
         } : undefined
     }
 }

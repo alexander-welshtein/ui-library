@@ -4,11 +4,11 @@ import Config from "../render/Config"
 import StyleComposer from "../core/StyleComposer"
 import ComponentRenderer from "../core/ComponentRenderer"
 
-export class LinearLayout extends Component {
+export class Layout extends Component {
 
 }
 
-export const renderLinearLayout = (config: ComponentConfig, horizontal: boolean): Config => {
+export const renderLayout = (config: ComponentConfig, horizontal: boolean): Config => {
     const style = {}
 
     StyleComposer.basic(style, config)
