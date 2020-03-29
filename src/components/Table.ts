@@ -9,11 +9,11 @@ import ElementUtil from "../render/ElementUtil"
 
 export class Table extends Component {
 
-    private readonly content: HTMLElement
+    private content: HTMLElement
 
 
-    constructor() {
-        super()
+    setElement(value: HTMLElement) {
+        super.element = value
 
         this.content = this.element.children[1] as HTMLElement
     }
@@ -53,8 +53,8 @@ export const renderTable = (config: ComponentConfig): Config => {
         class: "table",
         style,
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined,
         children: [
             {

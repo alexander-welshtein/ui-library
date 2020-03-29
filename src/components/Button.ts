@@ -25,14 +25,14 @@ export const renderButton = (config: ComponentConfig): Config => {
         class: `button ${config.disabled ? "disabled-button" : (config.primary ? "primary-button" : "default-button")}`,
         style,
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined,
-        children: config.value ? [
+        children: [
             {
                 tag: "p",
-                text: config.value
+                text: config.label
             }
-        ] : undefined
+        ]
     }
 }

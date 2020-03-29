@@ -38,8 +38,8 @@ export const renderList = (config: ComponentConfig, horizontal: boolean): Config
         class: horizontal ? "horizontal-list" : "vertical-list",
         style,
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined,
         children: config.items.map(item => config.adapter(item)).map(config => ComponentRenderer.render(config))
     }

@@ -104,12 +104,12 @@
 
     .field {
         width: 100%;
-        align-items: center;
+        flex-direction: column;
 
         & > p {
-            color: #9E9E9E;
-            font-size: 16px;
-            padding: 0 8px;
+            color: #757575;
+            font-size: 14px;
+            padding: 8px 8px 8px 0;
         }
 
         & > input {
@@ -117,17 +117,33 @@
             height: 100%;
             padding: 8px;
             box-sizing: border-box;
-            color: #9E9E9E;
-            border-style: solid;
-            border-width: 1px;
+            color: #757575;
+            border: 1px solid #757575;
             border-radius: 3px;
-            border-color: #9E9E9E;
             font-size: 14px;
             outline: none;
             transition: border-color .2s;
 
             &:focus {
-                border-color: #616161;
+                border-color: #1E88E5;
+            }
+
+            &::placeholder {
+                color: #BDBDBD;
+            }
+        }
+
+        &-disabled {
+            pointer-events: none;
+
+            & > p {
+                color: #9E9E9E;
+            }
+
+            & > input {
+                background-color: #EEEEEE;
+                color: #9E9E9E;
+                border-color: #EEEEEE;
             }
         }
     }
@@ -150,7 +166,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #00000033;
+        background-color: #0000004D;
 
         & > .content {
             background-color: #FAFAFA;

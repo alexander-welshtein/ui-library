@@ -5,6 +5,31 @@ import StyleComposer from "../core/StyleComposer"
 
 export class Field extends Component {
 
+    private input: HTMLInputElement
+
+
+    setElement(element: HTMLElement) {
+        super.setElement(element)
+
+        this.input = this.element.children[1] as HTMLInputElement
+    }
+
+
+    setValue(value: string) {
+        this.input.value = value
+    }
+
+    getValue() {
+        return this.input.value
+    }
+
+    clear() {
+        this.input.value = ""
+    }
+
+    disable() {
+        this.element.classList.add("field-disabled")
+    }
 }
 
 export const renderField = (config: ComponentConfig): Config => {
@@ -14,7 +39,7 @@ export const renderField = (config: ComponentConfig): Config => {
 
     const children: Config[] = []
 
-    if (config.value) {
+    if (config.label) {
         const labelStyle: any = {}
 
         if (config.labelWidth) {
@@ -23,25 +48,37 @@ export const renderField = (config: ComponentConfig): Config => {
 
         children.push({
             tag: "p",
-            text: config.value,
+            text: config.label,
             style: labelStyle
         })
     }
 
+    const attrs: any = {
+        type: "text"
+    }
+
+    if (config.placeholder) {
+        attrs.placeholder = config.placeholder
+    }
+
     children.push({
         tag: "input",
-        attrs: {
-            type: "text"
-        }
+        attrs
     })
 
     return {
-        class: "field",
+        class: `field ${config.disabled ? "field-disabled" : ""}`,
         style,
-        onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
-        } : undefined,
-        children
+        children,
+        onRender: element => {
+            if (config.value) {
+                (element.children[1] as HTMLInputElement).value = config.value
+            }
+
+            if (config.hook) {
+                config.hook.setElement(element)
+                config.hook.setConfig(config)
+            }
+        }
     }
 }

@@ -34,6 +34,8 @@ export interface ComponentConfig {
 
     // Field
     labelWidth?: string
+    label?: string
+    placeholder?: string
 
     // List
     items?: any[]

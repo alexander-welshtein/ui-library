@@ -1,43 +1,43 @@
 import {ComponentConfig} from "../core/ComponentConfig"
 
 export default abstract class Component {
-    private _element: HTMLElement
-    private _config: ComponentConfig
+    protected element: HTMLElement
+    protected config: ComponentConfig
 
 
-    get config(): ComponentConfig {
-        return this._config
+    getElement() {
+        return this.element
     }
 
-    set config(config: ComponentConfig) {
-        this._config = config
+    setElement(element: HTMLElement) {
+        this.element = element
     }
 
-    get element(): HTMLElement {
-        return this._element
+    getConfig() {
+        return this.config
     }
 
-    set element(value: HTMLElement) {
-        this._element = value
+    setConfig(config: ComponentConfig) {
+        this.config = config
     }
 
 
     on(event: string, listener: (event: Event) => void): (event: Event) => void {
-        this._element.addEventListener(event, listener)
+        this.element.addEventListener(event, listener)
         return listener
     }
 
 
     deleteEventListener(event: string, listener: (event: Event) => void) {
-        this._element.removeEventListener(event, listener)
+        this.element.removeEventListener(event, listener)
     }
 
 
     addClass(name: string) {
-        this._element.classList.add(name)
+        this.element.classList.add(name)
     }
 
     deleteClass(name: string) {
-        this._element.classList.remove(name)
+        this.element.classList.remove(name)
     }
 }

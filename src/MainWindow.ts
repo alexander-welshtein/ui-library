@@ -26,8 +26,8 @@ export class MainWindow {
                             children: [
                                 {
                                     type: ComponentType.Label,
-                                    value: "Modal window",
-                                    padding: "16px"
+                                    label: "Modal window",
+                                    padding: "24px"
                                 }
                             ]
                         },
@@ -36,13 +36,13 @@ export class MainWindow {
                         },
                         {
                             type: ComponentType.HorizontalLayout,
-                            padding: "16px",
+                            padding: "24px",
                             fit: true,
                             horizontalAlign: Align.Right,
                             children: [
                                 {
                                     type: ComponentType.Button,
-                                    value: "Cancel",
+                                    label: "Cancel",
                                     fit: true,
                                     hook: this.cancelButton
                                 },
@@ -52,10 +52,9 @@ export class MainWindow {
                                 },
                                 {
                                     type: ComponentType.Button,
-                                    value: "Confirm",
+                                    label: "Confirm",
                                     fit: true,
                                     primary: true,
-                                    disabled: true,
                                     hook: this.confirmButton
                                 }
                             ]

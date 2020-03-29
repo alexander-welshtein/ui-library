@@ -16,8 +16,8 @@ export const renderImage = (config: ComponentConfig): Config => {
         class: "image",
         style,
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined
     }
 }

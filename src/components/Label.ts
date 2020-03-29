@@ -24,10 +24,10 @@ export const renderLabel = (config: ComponentConfig): Config => {
     return {
         class: "label",
         style,
-        text: config.value,
+        text: config.label,
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined
     }
 }

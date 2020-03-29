@@ -34,8 +34,8 @@ export const renderWindow = (config: ComponentConfig): Config => {
             })
 
             if (config.hook) {
-                config.hook.element = element
-                config.hook.config = config
+                config.hook.setElement(element)
+                config.hook.setConfig(config)
             }
         }
     } : {
@@ -43,8 +43,8 @@ export const renderWindow = (config: ComponentConfig): Config => {
         style,
         children: config.children.map(config => ComponentRenderer.render(config)),
         onRender: config.hook ? element => {
-            config.hook.element = element
-            config.hook.config = config
+            config.hook.setElement(element)
+            config.hook.setConfig(config)
         } : undefined
     }
 }
