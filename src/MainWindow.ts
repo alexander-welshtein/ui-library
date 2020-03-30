@@ -15,7 +15,7 @@ export class MainWindow {
         return {
             type: ComponentType.Window,
             hook: this.window,
-            width: "400px",
+            width: "480px",
             height: "200px",
             modal: true,
             children: [
@@ -46,7 +46,7 @@ export class MainWindow {
                                 {
                                     type: ComponentType.Checkbox,
                                     hook: this.checkbox,
-                                    label: "Active",
+                                    label: "Don't ask again",
                                     checked: true
                                 },
                                 {

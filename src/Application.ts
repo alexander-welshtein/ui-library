@@ -29,12 +29,9 @@ export class Application {
                 {
                     type: ComponentType.HorizontalLayout,
                     id: "main-header",
-                    height: "48px",
-                    padding: {
-                        left: "8px",
-                        right: "12px"
-                    },
+                    padding: "16px",
                     verticalAlign: Align.Center,
+                    fit: true,
                     children: [
                         {
                             type: ComponentType.Label,
@@ -45,7 +42,8 @@ export class Application {
                             id: "menu-icon",
                             value: menuIcon,
                             width: "24px",
-                            height: "24px"
+                            height: "24px",
+                            padding: "8px"
                         }
                     ]
                 },

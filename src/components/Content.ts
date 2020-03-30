@@ -12,14 +12,11 @@ export const renderContent = (config: ComponentConfig): Config => {
 
     StyleComposer.basic(style, config)
 
-    const result: Config = {
+    return {
         class: "content",
-        style
+        style,
+        ...(config.value ? {
+            html: config.value
+        } : {})
     }
-
-    if (config.value) {
-        result.html = config.value
-    }
-
-    return result
 }

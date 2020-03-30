@@ -37,39 +37,30 @@ export const renderField = (config: ComponentConfig): Config => {
 
     StyleComposer.basic(style, config)
 
-    const children: Config[] = []
-
-    if (config.label) {
-        const labelStyle: any = {}
-
-        if (config.labelWidth) {
-            labelStyle.width = config.labelWidth
-        }
-
-        children.push({
-            tag: "p",
-            text: config.label,
-            style: labelStyle
-        })
-    }
-
-    const attrs: any = {
-        type: "text"
-    }
-
-    if (config.placeholder) {
-        attrs.placeholder = config.placeholder
-    }
-
-    children.push({
-        tag: "input",
-        attrs
-    })
-
     return {
-        class: `field ${config.disabled ? "field-disabled" : ""}`,
+        class: `field${config.disabled ? " field-disabled" : ""}`,
         style,
-        children,
+        children: [
+            ...(config.label ? [
+                {
+                    tag: "p",
+                    text: config.label,
+                    style: {
+                        ...(config.labelWidth ? {
+                            width: config.labelWidth
+                        } : {})
+                    }
+                }
+            ] : []),
+            {
+                tag: "input",
+                attrs: {
+                    ...(config.placeholder ? {
+                        placeholder: config.placeholder
+                    } : {})
+                }
+            }
+        ],
         onRender: element => {
             if (config.value) {
                 (element.children[1] as HTMLInputElement).value = config.value
