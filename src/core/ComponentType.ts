@@ -10,5 +10,6 @@ export enum ComponentType {
     VerticalList,
     HorizontalList,
     Table,
-    Window
+    Window,
+    Checkbox
 }

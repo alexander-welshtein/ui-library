@@ -47,6 +47,9 @@ export interface ComponentConfig {
 
     // Window
     modal?: boolean
+
+    // Checkbox
+    checked?: boolean
 }
 
 export enum Align {

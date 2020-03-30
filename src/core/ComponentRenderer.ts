@@ -12,6 +12,7 @@ import {renderList} from "../components/List"
 import {renderLayout} from "../components/Layout"
 import {renderTable} from "../components/Table"
 import {renderWindow} from "../components/Window"
+import {renderCheckbox} from "../components/Checkbox"
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
@@ -54,6 +55,8 @@ export default class ComponentRenderer {
                 return renderTable(config)
             case ComponentType.Window:
                 return renderWindow(config)
+            case ComponentType.Checkbox:
+                return renderCheckbox(config)
             default:
                 return renderContent(config)
         }

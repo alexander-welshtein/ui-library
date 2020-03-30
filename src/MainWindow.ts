@@ -2,16 +2,19 @@ import {ComponentType} from "./core/ComponentType"
 import {Align, ComponentConfig} from "./core/ComponentConfig"
 import {Button} from "./components/Button"
 import {Window} from "./components/Window"
+import {Checkbox} from "./components/Checkbox"
 
 export class MainWindow {
 
     private window = new Window()
     private cancelButton = new Button()
     private confirmButton = new Button()
+    private checkbox = new Checkbox()
 
     config(): ComponentConfig {
         return {
             type: ComponentType.Window,
+            hook: this.window,
             width: "400px",
             height: "200px",
             modal: true,
@@ -41,10 +44,19 @@ export class MainWindow {
                             horizontalAlign: Align.Right,
                             children: [
                                 {
+                                    type: ComponentType.Checkbox,
+                                    hook: this.checkbox,
+                                    label: "Active",
+                                    checked: true
+                                },
+                                {
+                                    type: ComponentType.Spacer
+                                },
+                                {
                                     type: ComponentType.Button,
+                                    hook: this.cancelButton,
                                     label: "Cancel",
-                                    fit: true,
-                                    hook: this.cancelButton
+                                    fit: true
                                 },
                                 {
                                     type: ComponentType.Spacer,
@@ -52,17 +64,16 @@ export class MainWindow {
                                 },
                                 {
                                     type: ComponentType.Button,
+                                    hook: this.confirmButton,
                                     label: "Confirm",
                                     fit: true,
-                                    primary: true,
-                                    hook: this.confirmButton
+                                    primary: true
                                 }
                             ]
                         }
                     ]
                 }
-            ],
-            hook: this.window
+            ]
         }
     }
 
