@@ -14,9 +14,25 @@ import {renderTable} from "../components/Table"
 import {renderWindow} from "../components/Window"
 import {renderCheckbox} from "../components/Checkbox"
 
+const routes = new Map<number, (config: ComponentConfig) => Config>()
+    .set(ComponentType.Content, renderContent)
+    .set(ComponentType.VerticalLayout, config => renderLayout(config, false))
+    .set(ComponentType.HorizontalLayout, config => renderLayout(config, true))
+    .set(ComponentType.Button, renderButton)
+    .set(ComponentType.Field, renderField)
+    .set(ComponentType.Spacer, renderSpacer)
+    .set(ComponentType.Label, renderLabel)
+    .set(ComponentType.Image, renderImage)
+    .set(ComponentType.Icon, renderIcon)
+    .set(ComponentType.VerticalList, config => renderList(config, false))
+    .set(ComponentType.HorizontalList, config => renderList(config, true))
+    .set(ComponentType.Table, renderTable)
+    .set(ComponentType.Window, renderWindow)
+    .set(ComponentType.Checkbox, renderCheckbox)
+
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
-        const config = this.toConfig(componentConfig)
+        const config = routes.get(componentConfig.type)(componentConfig)
 
         if (componentConfig.id) {
             config.id = componentConfig.id
@@ -27,39 +43,6 @@ export default class ComponentRenderer {
         }
 
         return config
-    }
-
-    private static toConfig(config: ComponentConfig): Config {
-        switch (config.type) {
-            case ComponentType.VerticalLayout:
-                return renderLayout(config, false)
-            case ComponentType.HorizontalLayout:
-                return renderLayout(config, true)
-            case ComponentType.Button:
-                return renderButton(config)
-            case ComponentType.Field:
-                return renderField(config)
-            case ComponentType.Spacer:
-                return renderSpacer(config)
-            case ComponentType.Label:
-                return renderLabel(config)
-            case ComponentType.Image:
-                return renderImage(config)
-            case ComponentType.Icon:
-                return renderIcon(config)
-            case ComponentType.VerticalList:
-                return renderList(config, false)
-            case ComponentType.HorizontalList:
-                return renderList(config, true)
-            case ComponentType.Table:
-                return renderTable(config)
-            case ComponentType.Window:
-                return renderWindow(config)
-            case ComponentType.Checkbox:
-                return renderCheckbox(config)
-            default:
-                return renderContent(config)
-        }
     }
 }
 

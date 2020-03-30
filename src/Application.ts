@@ -41,9 +41,8 @@ export class Application {
                             type: ComponentType.Icon,
                             id: "menu-icon",
                             value: menuIcon,
-                            width: "24px",
-                            height: "24px",
-                            padding: "8px"
+                            width: "32px",
+                            height: "32px"
                         }
                     ]
                 },
