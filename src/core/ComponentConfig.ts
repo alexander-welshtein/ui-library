@@ -50,6 +50,10 @@ export interface ComponentConfig {
 
     // Checkbox
     checked?: boolean
+
+    // IconButton
+    iconWidth?: string
+    iconHeight?: string
 }
 
 export enum Align {

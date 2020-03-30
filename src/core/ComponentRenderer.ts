@@ -13,8 +13,9 @@ import {renderLayout} from "../components/Layout"
 import {renderTable} from "../components/Table"
 import {renderWindow} from "../components/Window"
 import {renderCheckbox} from "../components/Checkbox"
+import {renderIconButton} from "../components/IconButton"
 
-const routes = new Map<number, (config: ComponentConfig) => Config>()
+const renderRoutes = new Map<ComponentType, (config: ComponentConfig) => Config>()
     .set(ComponentType.Content, renderContent)
     .set(ComponentType.VerticalLayout, config => renderLayout(config, false))
     .set(ComponentType.HorizontalLayout, config => renderLayout(config, true))
@@ -29,10 +30,11 @@ const routes = new Map<number, (config: ComponentConfig) => Config>()
     .set(ComponentType.Table, renderTable)
     .set(ComponentType.Window, renderWindow)
     .set(ComponentType.Checkbox, renderCheckbox)
+    .set(ComponentType.IconButton, renderIconButton)
 
 export default class ComponentRenderer {
     static render(componentConfig: ComponentConfig): Config {
-        const config = routes.get(componentConfig.type)(componentConfig)
+        const config = renderRoutes.get(componentConfig.type)(componentConfig)
 
         if (componentConfig.id) {
             config.id = componentConfig.id
